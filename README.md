@@ -1,0 +1,2 @@
+# TSLib
+ Typescript generic library
