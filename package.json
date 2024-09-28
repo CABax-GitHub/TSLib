@@ -1,0 +1,36 @@
+{
+  "name": "tslib",
+  "version": "1.0.0",
+  "description": "Generic Typescript Library",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CABax-GitHub/TSLib.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Library"
+  ],
+  "author": "C.A. Bax",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CABax-GitHub/TSLib/issues"
+  },
+  "homepage": "https://github.com/CABax-GitHub/TSLib#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@stryker-mutator/typescript": "^4.0.0",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
+    "karma-typescript": "^5.5.4",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  }
+}
