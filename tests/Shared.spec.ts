@@ -1,4 +1,4 @@
-import { DeviceType, deviceTypes, DeviceTypeRange, validDeviceTypes } from "../src/lib/Shared";
+import { DeviceType, deviceTypes, DeviceTypeRange, validDeviceTypes } from "../srcw/Shared";
 
 /**
  * Tests for shared types, classes etc.
@@ -18,6 +18,7 @@ describe("[Shared]", () => {
     it("should contain only 4 types", () => {
       expect(deviceTypes.length).toBe(4);
       const expected: DeviceType = "Mobile";
+
       expect(deviceTypes.map((dt) => dt.type)).toContain(expected);
     });
 
@@ -28,6 +29,7 @@ describe("[Shared]", () => {
         { minWidthScreen: 768, maxWidthScreen: 992, type: "Laptop" },
         { minWidthScreen: 993, maxWidthScreen: Infinity, type: "Desktop" },
       ];
+
       expect(deviceTypes).toEqual(expectedRanges);
     });
   });

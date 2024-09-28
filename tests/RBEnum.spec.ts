@@ -14,6 +14,7 @@ import { anyNull, anyUndefined } from "./Shared.spec";
  */
 
 /* eslint-disable max-lines-per-function */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[RBEnum]", () => {
 
   describe("function 'getEnumDefinition()'", () => {
@@ -23,9 +24,11 @@ describe("[RBEnum]", () => {
       const name: string = EMPTY_STRING;
       const exp = 100;
       const res: string = RBEnum.getEnumDefinition(org, name);
+
       expect(res.length).toBeGreaterThan(exp);
       expect(res).toContain("export enum -Definition-");
       const newlines = res.split(`${NEWLINE}   `).length - 1;
+
       expect(newlines).toBeGreaterThan(1);
     });
 
@@ -34,9 +37,11 @@ describe("[RBEnum]", () => {
       const name = "SupportedLanguages";
       const exp = 100;
       const res: string = RBEnum.getEnumDefinition(org, name);
+
       expect(res.length).toBeGreaterThan(exp);
       expect(res).toContain("export enum " + name);
       const newlines = res.split(`${NEWLINE}   `).length - 1;
+
       expect(newlines).toBeGreaterThan(1);
     });
 
@@ -46,6 +51,7 @@ describe("[RBEnum]", () => {
       const res: string = RBEnum.getEnumDefinition(org, name);
       const expected: string = `export enum SomeName {${NEWLINE}   ` +
         `"JustAKey" = ""just a value"",${NEWLINE}}`;
+
       expect(res).toBe(expected);
     });
 
@@ -53,6 +59,7 @@ describe("[RBEnum]", () => {
       const resU: string = RBEnum.getEnumDefinition(anyNull);
       const resN: string = RBEnum.getEnumDefinition(anyUndefined);
       const exp: string = EMPTY_STRING;
+
       expect(resN).toBe(exp);
       expect(resU).toBe(exp);
     });
@@ -66,6 +73,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = RBLocale.SupportedLanguages;
       const exp = "\"nl-NL\" = ";
       const res: string = RBEnum.getEnum(org).join(NEWLINE);
+
       expect(res).toContain(exp);
     });
 
@@ -73,6 +81,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = { JustAKey: "\"just a value\"" };
       const res: string = RBEnum.getEnum(org).join(NEWLINE);
       const expected = "\"JustAKey\" = \"\"just a value\"\",";
+
       expect(res).toContain(expected);
     });
 
@@ -87,6 +96,7 @@ describe("[RBEnum]", () => {
         SECOND: "second",
       };
       const expected = ["\"FIRST\" = \"first\",", "\"SECOND\" = \"second\","];
+
       expect(RBEnum.getEnum(enumObject)).toEqual(expected);
     });
 
@@ -98,6 +108,7 @@ describe("[RBEnum]", () => {
         SECOND: "second",
       };
       const expected = ["\"FIRST\" = \"first\",", "\"SECOND\" = \"second\","];
+
       expect(RBEnum.getEnum(enumObject)).toEqual(expected);
     });
 
@@ -109,12 +120,14 @@ describe("[RBEnum]", () => {
         SECOND: "second",
       };
       const expected = ["\"FIRST\" = \"first\",", "\"SECOND\" = \"second\","];
+
       expect(RBEnum.getEnum(enumObject)).toEqual(expected);
     });
 
     it("should handle an empty enum object", () => {
       const enumObject: Record<string, string> = {};
       const expected: string[] = [];
+
       expect(RBEnum.getEnum(enumObject)).toEqual(expected);
     });
   });
@@ -127,6 +140,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = RBLocale.SupportedLanguages;
       const exp = "nl-NL";
       const res: string = RBEnum.getEnumKeys(org).join(NEWLINE);
+
       expect(res).toContain(exp);
     });
 
@@ -134,6 +148,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = { JustAKey: "\"just a value\"" };
       const res: string = RBEnum.getEnumKeys(org).join(NEWLINE);
       const expected = "JustAKey";
+
       expect(res).toContain(expected);
     });
 
@@ -141,6 +156,7 @@ describe("[RBEnum]", () => {
       const resN: string[] = RBEnum.getEnumKeys(anyNull);
       const resU: string[] = RBEnum.getEnumKeys(anyUndefined);
       const exp: string[] = [];
+
       expect(Array.isArray(resN)).toBe(true);
       expect(resN).toEqual(exp);
       expect(Array.isArray(resU)).toBe(true);
@@ -153,6 +169,7 @@ describe("[RBEnum]", () => {
         SECOND: "second",
       };
       const expected = ["FIRST", "SECOND"];
+
       expect(RBEnum.getEnumKeys(enumObject)).toEqual(expected);
     });
 
@@ -164,6 +181,7 @@ describe("[RBEnum]", () => {
         SECOND: "second",
       };
       const expected = ["FIRST", "SECOND"];
+
       expect(RBEnum.getEnumKeys(enumObject)).toEqual(expected);
     });
 
@@ -176,6 +194,7 @@ describe("[RBEnum]", () => {
       };
       const expected = ["FIRST", "SECOND"];
       const result = RBEnum.getEnumKeys(enumObject);
+
       expect(Array.isArray(result)).toBe(true);
       expect(result).toEqual(expected);
     });
@@ -184,6 +203,7 @@ describe("[RBEnum]", () => {
       const enumObject = {};
       const expected: string[] = [];
       const result = RBEnum.getEnumKeys(enumObject);
+
       expect(Array.isArray(result)).toBe(true);
       expect(result).toEqual(expected);
     });
@@ -197,6 +217,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = RBLocale.SupportedLanguages;
       const exp = "Nederlands";
       const res: string = RBEnum.getEnumValues(org).join(NEWLINE);
+
       expect(res).toContain(exp);
     });
 
@@ -204,6 +225,7 @@ describe("[RBEnum]", () => {
       const resN: string = RBEnum.getEnumValues(anyNull).join(NEWLINE);
       const resU: string = RBEnum.getEnumValues(anyUndefined).join(NEWLINE);
       const exp: string = EMPTY_STRING;
+
       expect(resU).toBe(exp);
       expect(resN).toBe(exp);
     });
@@ -211,6 +233,7 @@ describe("[RBEnum]", () => {
     it("Should return an empty array when passed an empty object", () => {
       const emptyObject = {};
       const result = RBEnum.getEnumValues(emptyObject);
+
       expect(result).toEqual([]);
     });
 
@@ -224,6 +247,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = RBLocale.SupportedLanguages;
       const key = "nl-NL";
       const res: boolean = RBEnum.isInEnum(key, org);
+
       expect(res).toBeTruthy();
     });
 
@@ -231,6 +255,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = RBLocale.SupportedLanguages;
       const key = "non-existent-key";
       const res: boolean = RBEnum.isInEnum(key, org);
+
       expect(res).toBeFalsy();
     });
 
@@ -238,6 +263,7 @@ describe("[RBEnum]", () => {
       const org: Record<string, string | number> = RBLocale.SupportedLanguages;
       const resN: boolean = RBEnum.isInEnum(anyNull, org);
       const resU: boolean = RBEnum.isInEnum(anyUndefined, org);
+
       expect(resN).toBeFalsy();
       expect(resU).toBeFalsy();
     });

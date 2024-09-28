@@ -1,10 +1,11 @@
-import { IS_MOBILE, HAS_TOUCH_SCREEN } from "../src/RBConstants";
+import { IS_MOBILE, HAS_TOUCH_SCREEN } from "../srcw/RBConstants";
 import { NEWLINE, EMPTY_STRING, SPACE, TAB } from "../src/RBConstants";
-import { LIB_VERSION, LIB_NAME, IS_IN_BROWSER, BROWSER } from "../src/RBConstants";
-import { DEVICE_TYPE, MAX_WIDTH_SCREEN, MAX_HEIGHT_SCREEN } from "../src/RBConstants";
+import { LIB_VERSION, LIB_NAME, IS_IN_BROWSER } from "../src/RBConstants";
+import { BROWSER } from "../srcw/RBConstants";
+import { DEVICE_TYPE, MAX_WIDTH_SCREEN, MAX_HEIGHT_SCREEN } from "../srcw/RBConstants";
 import { MIN_DATE, MIN_DATE_GET_TIME, MILLISECONDS_PER_DAY } from "../src/RBConstants";
-import { RBBrowser } from "../src/RBBrowser";
-import { validDeviceTypes } from "../src/lib/Shared";
+import { RBBrowser } from "../srcw/RBBrowser";
+import { validDeviceTypes } from "../srcw/Shared";
 
 /**
  * Tests for Global constants used in the library.
@@ -24,8 +25,10 @@ describe("[Constants]", () => {
       expect(typeof LIB_VERSION).toBe("string");
       expect(typeof LIB_NAME).toBe("string");
       const expectedVer = "0.1.0";
+
       expect(LIB_VERSION).toBe(expectedVer);
       const expectedName = "RBCore";
+
       expect(LIB_NAME).toBe(expectedName);
     });
   });
@@ -115,12 +118,14 @@ describe("[Constants]", () => {
 
     it("should be the smallest date MIN_DATE (1900-01-01)", () => {
       const expected = new Date(Date.UTC(0, 0, 1));
+
       expect(MIN_DATE instanceof Date).toBeTruthy();
       expect(MIN_DATE).toEqual(expected);
     });
 
     it("should be the smallest date for getDate() MIN_DATE_GET_TIME (1970-01-01)", () => {
       const expected = new Date(Date.UTC(1970, 0, 1));
+
       expect(MIN_DATE_GET_TIME instanceof Date).toBeTruthy();
       expect(MIN_DATE_GET_TIME).toEqual(expected);
     });

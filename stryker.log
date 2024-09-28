@@ -1,0 +1,571 @@
+05:47:12 (7448) DEBUG ConfigReader Loading config from stryker.config.json
+05:47:12 (7448) DEBUG ConfigReader Loaded config: {
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "mutate": [
+    ".\\src\\RBFunc.ts"
+  ],
+  "testRunner": "karma",
+  "karma": {
+    "configFile": "karma.conf.js",
+    "projectType": "custom",
+    "config": {
+      "browsers": [
+        "ChromeHeadless"
+      ]
+    }
+  },
+  "reporters": [
+    "progress",
+    "clear-text",
+    "html"
+  ],
+  "concurrency": 5,
+  "concurrency_comment": "Recommended to use about half of your available cores when running stryker with angular",
+  "coverageAnalysis": "perTest",
+  "ignoreStatic": true,
+  "warnings": {
+    "preprocessorErrors": false
+  },
+  "timeoutMS": 60000,
+  "timeoutFactor": 1.5,
+  "fileLogLevel": "trace",
+  "logLevel": "debug",
+  "allowConsoleColors": true,
+  "checkers": [],
+  "checkerNodeArgs": [],
+  "commandRunner": {
+    "command": "npm test"
+  },
+  "clearTextReporter": {
+    "allowColor": true,
+    "allowEmojis": false,
+    "logTests": true,
+    "maxTestsToLog": 3,
+    "reportTests": true,
+    "reportMutants": true,
+    "reportScoreTable": true,
+    "skipFull": false
+  },
+  "dashboard": {
+    "baseUrl": "https://dashboard.stryker-mutator.io/api/reports",
+    "reportType": "full"
+  },
+  "dryRunOnly": false,
+  "eventReporter": {
+    "baseDir": "reports/mutation/events"
+  },
+  "ignorePatterns": [],
+  "incremental": false,
+  "incrementalFile": "reports/stryker-incremental.json",
+  "force": false,
+  "inPlace": false,
+  "maxConcurrentTestRunners": 9007199254740991,
+  "maxTestRunnerReuse": 0,
+  "mutator": {
+    "plugins": null,
+    "excludedMutations": []
+  },
+  "plugins": [
+    "@stryker-mutator/*"
+  ],
+  "appendPlugins": [],
+  "htmlReporter": {
+    "fileName": "reports/mutation/mutation.html"
+  },
+  "jsonReporter": {
+    "fileName": "reports/mutation/mutation.json"
+  },
+  "disableTypeChecks": true,
+  "symlinkNodeModules": true,
+  "tempDirName": ".stryker-tmp",
+  "cleanTempDir": true,
+  "testRunnerNodeArgs": [],
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  },
+  "dryRunTimeoutMinutes": 5,
+  "tsconfigFile": "tsconfig.json",
+  "disableBail": false,
+  "allowEmpty": false,
+  "ignorers": []
+}
+05:47:12 (7448) DEBUG PluginLoader Loading @stryker-mutator/* from D:\50-DEVELOPMENT\Typescript\TSLib\node_modules\@stryker-mutator
+05:47:12 (7448) DEBUG PluginLoader Loading plugin "@stryker-mutator/jest-runner" (matched with expression @stryker-mutator/*)
+05:47:12 (7448) DEBUG PluginLoader Loading plugin "@stryker-mutator/karma-runner" (matched with expression @stryker-mutator/*)
+05:47:12 (7448) DEBUG PluginLoader Loading plugin "@stryker-mutator/typescript-checker" (matched with expression @stryker-mutator/*)
+05:47:12 (7448) DEBUG PluginLoader Loading plugin @stryker-mutator/jest-runner
+05:47:12 (7448) DEBUG PluginLoader Loading plugin @stryker-mutator/karma-runner
+05:47:12 (7448) DEBUG PluginLoader Loading plugin @stryker-mutator/typescript-checker
+05:47:12 (7448) DEBUG PluginLoader Loading plugin file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/reporters/index.js
+05:47:12 (7448) DEBUG MetaSchemaBuilder Contributing 3 schemas from plugins to options validation.
+05:47:12 (7448) INFO ProjectReader Found 1 of 138 file(s) to be mutated.
+05:47:12 (7448) DEBUG ProjectReader All input files: [
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\.gitattributes",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\.gitignore",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\.vscode\\settings.json",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\base.css",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\block-navigation.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\favicon.png",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\index.html",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\prettify.css",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\prettify.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\sort-arrow-sprite.png",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\coverage\\Chrome Headless 129.0.0.0 (Windows 10)\\html\\sorter.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\NodeBrowser.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\NodeBrowser.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\NodeLanguage.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\NodeLanguage.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\NodeStorage.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\NodeStorage.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBAddress.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBAddress.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBConstants.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBConstants.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBDate.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBDate.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBEnum.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBEnum.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBFunc.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBFunc.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBHoliday.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBHoliday.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBLocale.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBLocale.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBLocalStorage.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBLocalStorage.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBPerson.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBPerson.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBTable.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBTable.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBValidator.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\src\\RBValidator.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\BrowserBrowser.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\BrowserBrowser.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\BrowserLanguage.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\BrowserLanguage.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\BrowserStorage.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\BrowserStorage.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\RBBrowser.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\RBBrowser.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\RBConstants.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\RBConstants.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\Shared.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\srcw\\Shared.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\BrowserBrowser.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\BrowserBrowser.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\BrowserLanguage.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\BrowserLanguage.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\BrowserStorage.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\BrowserStorage.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\NodeBrowser.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\NodeBrowser.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\NodeLanguage.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\NodeLanguage.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\NodeStorage.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\NodeStorage.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBAddress.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBAddress.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBBrowser.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBBrowser.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBConstants.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBConstants.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBDate.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBDate.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBEnum.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBEnum.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBFunc.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBFunc.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBHoliday.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBHoliday.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBLocale.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBLocale.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBLocalStorage.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBLocalStorage.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBPerson.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBPerson.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBTable.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBTable.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBValidator.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\RBValidator.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\Shared.spec.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\dist\\out-tsc\\tests\\Shared.spec.js.map",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\eslint.config.mjs",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\index.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\karma.conf.js",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\LICENSE",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\package-lock.json",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\package.json",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\README.md",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\NodeBrowser.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\NodeLanguage.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\NodeStorage.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBAddress.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBConstants.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBDate.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBEnum.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBFunc.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBHoliday.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBLocale.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBLocalStorage.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBPerson.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBTable.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBValidator.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\srcw\\BrowserBrowser.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\srcw\\BrowserLanguage.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\srcw\\BrowserStorage.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\srcw\\RBBrowser.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\srcw\\RBConstants.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\srcw\\Shared.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\stryker.config.json",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\BrowserBrowser.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\BrowserLanguage.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\BrowserStorage.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\NodeBrowser.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\NodeLanguage.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\NodeStorage.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBAddress.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBBrowser.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBConstants.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBDate.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBEnum.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBFunc.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBHoliday.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBLocale.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBLocalStorage.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBPerson.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBTable.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\RBValidator.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tests\\Shared.spec.ts",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tsconfig.json",
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\types\\eslint-plugin-jasmine.d.ts"
+]
+05:47:12 (7448) DEBUG ProjectReader Files to mutate: [
+  "D:\\50-DEVELOPMENT\\Typescript\\TSLib\\src\\RBFunc.ts"
+]
+05:47:12 (7448) DEBUG TemporaryDirectory Using temp directory "D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp"
+05:47:12 (7448) DEBUG Instrumenter Instrumenting 1 source files with mutants
+05:47:12 (7448) DEBUG Instrumenter Instrumented src\RBFunc.ts (231 mutant(s))
+05:47:12 (7448) INFO Instrumenter Instrumented 1 source file(s) with 231 mutant(s)
+05:47:12 (7448) DEBUG TSConfigPreprocessor Rewriting file ProjectFile {
+  fs: [FileSystem],
+  name: 'D:\\50-DEVELOPMENT\\Typescript\\TSLib\\tsconfig.json',
+  mutate: false
+}
+05:47:12 (7448) INFO ConcurrencyTokenProvider Creating 5 test runner process(es).
+05:47:12 (7448) DEBUG ChildProcessProxy Started CheckerWorker in worker process 0 with pid 15868 
+05:47:13 (15868) DEBUG PluginLoader Loading plugin @stryker-mutator/jest-runner
+05:47:13 (15868) DEBUG PluginLoader Loading plugin @stryker-mutator/karma-runner
+05:47:13 (15868) DEBUG PluginLoader Loading plugin @stryker-mutator/typescript-checker
+05:47:13 (15868) DEBUG PluginLoader Loading plugin file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/reporters/index.js
+05:47:13 (7448) DEBUG Sandbox Creating a sandbox for files in D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp\sandbox1939067
+05:47:13 (7448) DEBUG Sandbox Start symlink node_modules
+05:47:13 (7448) DEBUG Sandbox Create symlink from D:\50-DEVELOPMENT\Typescript\TSLib\node_modules to D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp\sandbox1939067\node_modules
+05:47:13 (7448) DEBUG BroadcastReporter Broadcasting to reporters ["progress","clear-text","html"]
+05:47:13 (7448) DEBUG ChildProcessProxy Started ChildProcessTestRunnerWorker in worker process 0 with pid 6224 
+05:47:13 (7448) DEBUG ChildProcessProxy Started ChildProcessTestRunnerWorker in worker process 1 with pid 11600 
+05:47:14 (11600) DEBUG PluginLoader Loading plugin @stryker-mutator/jest-runner
+05:47:14 (11600) DEBUG PluginLoader Loading plugin @stryker-mutator/karma-runner
+05:47:14 (11600) DEBUG PluginLoader Loading plugin @stryker-mutator/typescript-checker
+05:47:14 (11600) DEBUG PluginLoader Loading plugin file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/reporters/index.js
+05:47:14 (6224) DEBUG PluginLoader Loading plugin @stryker-mutator/jest-runner
+05:47:14 (6224) DEBUG PluginLoader Loading plugin @stryker-mutator/karma-runner
+05:47:14 (6224) DEBUG PluginLoader Loading plugin @stryker-mutator/typescript-checker
+05:47:14 (6224) DEBUG PluginLoader Loading plugin file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/reporters/index.js
+05:47:14 (6224) DEBUG ChildProcessProxyWorker Changing current working directory for this process to D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp\sandbox1939067
+05:47:14 (11600) DEBUG ChildProcessProxyWorker Changing current working directory for this process to D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp\sandbox1939067
+05:47:14 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:14.849:WARN [karma-server]: `autowatch` and `singleRun` are both `false`. In order to execute tests use `karma run`.
+
+05:47:14 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:14.857:WARN [karma-server]: `autowatch` and `singleRun` are both `false`. In order to execute tests use `karma run`.
+
+05:47:15 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:15.404:INFO [compiler.karma-typescript]: Compiling project using Typescript 5.6.2
+
+05:47:15 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:15.402:INFO [compiler.karma-typescript]: Compiling project using Typescript 5.6.2
+
+05:47:16 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:16.804:INFO [compiler.karma-typescript]: Compiled 39 files in 1381 ms.
+
+05:47:16 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:16.816:INFO [compiler.karma-typescript]: Compiled 39 files in 1391 ms.
+
+05:47:17 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:17.947:INFO [karma-server]: Karma v6.4.4 server started at http://localhost:9876/
+
+05:47:17 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:17.947:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+
+05:47:17 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:17.961:INFO [karma-server]: Karma v6.4.4 server started at http://localhost:9877/
+
+05:47:17 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:17.962:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+
+05:47:17 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:17.970:INFO [launcher]: Starting browser ChromeHeadless
+
+05:47:17 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:17.985:INFO [launcher]: Starting browser ChromeHeadless
+
+05:47:18 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:18.857:INFO [Chrome Headless 129.0.0.0 (Windows 10)]: Connected on socket s05FDMVLzP8En79EAAAB with id 27396716
+
+05:47:18 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:18.855:INFO [Chrome Headless 129.0.0.0 (Windows 10)]: Connected on socket 1QRYidqQXn_RRyZqAAAB with id 65541765
+
+05:47:18 (7448) INFO DryRunExecutor Starting initial test run (karma test runner with "perTest" coverage analysis). This may take a while.
+05:47:18 (7448) DEBUG DryRunExecutor Using timeout of 300000 ms.
+05:47:18 (7448) DEBUG TimeoutDecorator Starting timeout timer (300000 ms) for a test run
+05:47:18 (7448) DEBUG ChildProcessProxy Started ChildProcessTestRunnerWorker in worker process 2 with pid 19104 
+05:47:18 (7448) DEBUG ChildProcessProxy Started ChildProcessTestRunnerWorker in worker process 3 with pid 20148 
+05:47:19 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:19.150:INFO [compiler.karma-typescript]: Compiling project using Typescript 5.6.2
+
+05:47:19 (20148) DEBUG PluginLoader Loading plugin @stryker-mutator/jest-runner
+05:47:19 (20148) DEBUG PluginLoader Loading plugin @stryker-mutator/karma-runner
+05:47:19 (20148) DEBUG PluginLoader Loading plugin @stryker-mutator/typescript-checker
+05:47:19 (20148) DEBUG PluginLoader Loading plugin file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/reporters/index.js
+05:47:19 (19104) DEBUG PluginLoader Loading plugin @stryker-mutator/jest-runner
+05:47:19 (19104) DEBUG PluginLoader Loading plugin @stryker-mutator/karma-runner
+05:47:19 (19104) DEBUG PluginLoader Loading plugin @stryker-mutator/typescript-checker
+05:47:19 (19104) DEBUG PluginLoader Loading plugin file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/reporters/index.js
+05:47:19 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:19.776:INFO [compiler.karma-typescript]: Compiled 39 files in 623 ms.
+
+05:47:19 (19104) DEBUG ChildProcessProxyWorker Changing current working directory for this process to D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp\sandbox1939067
+05:47:19 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:19.834:WARN [karma-server]: `autowatch` and `singleRun` are both `false`. In order to execute tests use `karma run`.
+
+05:47:19 (20148) DEBUG ChildProcessProxyWorker Changing current working directory for this process to D:\50-DEVELOPMENT\Typescript\TSLib\.stryker-tmp\sandbox1939067
+05:47:19 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:19.847:WARN [karma-server]: `autowatch` and `singleRun` are both `false`. In order to execute tests use `karma run`.
+
+05:47:20 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:20.384:INFO [compiler.karma-typescript]: Compiling project using Typescript 5.6.2
+
+05:47:20 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:20.384:INFO [compiler.karma-typescript]: Compiling project using Typescript 5.6.2
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10): Executed 0 of 0 SUCCESS (0 secs / 0 secs)
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10) ERROR
+  An error was thrown in afterAll
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Unexpected token 'export'
+  SyntaxError: Unexpected token 'export'
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Unexpected token 'export'
+  SyntaxError: Unexpected token 'export'
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+Chrome Headless 129.0.0.0 (Windows 10): Executed 0 of 0 ERROR (0 secs / 0 secs)
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10) ERROR
+  An error was thrown in afterAll
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Unexpected token 'export'
+  SyntaxError: Unexpected token 'export'
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Unexpected token 'export'
+  SyntaxError: Unexpected token 'export'
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+  Uncaught SyntaxError: Cannot use import statement outside a module
+  SyntaxError: Cannot use import statement outside a module
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10): Executed 0 of 0 ERROR (0.003 secs / 0 secs)
+
+05:47:20 (7448) ERROR DryRunExecutor One or more tests resulted in an error:
+	An error was thrown in afterAll
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Unexpected token 'export'
+SyntaxError: Unexpected token 'export'
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Unexpected token 'export'
+SyntaxError: Unexpected token 'export'
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+Uncaught SyntaxError: Cannot use import statement outside a module
+SyntaxError: Cannot use import statement outside a module
+05:47:20 (7448) DEBUG Stryker Not removing the temp dir because an error occurred
+05:47:20 (7448) ERROR Stryker Unexpected error occurred while running Stryker Error: Something went wrong in the initial test run
+    at DryRunExecutor.validateResultCompleted (file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:76:15)
+    at DryRunExecutor.executeDryRun (file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:96:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async WorkItem.execute (file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+    at async file:///D:/50-DEVELOPMENT/Typescript/TSLib/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13
+05:47:20 (7448) INFO Stryker This might be a known problem with a solution documented in our troubleshooting guide.
+05:47:20 (7448) INFO Stryker You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/
+05:47:20 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:20.848:WARN [Chrome Headless 129.0.0.0 (Windows 10)]: Disconnected (0 times) Client disconnected from CONNECTED state (transport close)
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+
+05:47:20 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:20.867:WARN [Chrome Headless 129.0.0.0 (Windows 10)]: Disconnected (0 times) Client disconnected from CONNECTED state (transport close)
+
+05:47:20 (7448) TRACE ChildProcessProxy Chrome Headless 129.0.0.0 (Windows 10) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 129.0.0.0 (Windows 10): Executed 0 of 0 ERROR (0.003 secs / 0 secs)
+Chrome Headless 129.0.0.0 (Windows 10) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+
+05:47:20 (7448) DEBUG ChildProcessProxy Disposing of worker process 6224
+05:47:20 (7448) DEBUG ChildProcessProxy Kill 6224
+05:47:21 (7448) DEBUG ChildProcessProxy Disposing of worker process 11600
+05:47:21 (7448) DEBUG ChildProcessProxy Kill 11600
+05:47:21 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:21.918:INFO [compiler.karma-typescript]: Compiled 39 files in 1511 ms.
+
+05:47:21 (7448) TRACE ChildProcessProxy 28 09 2024 05:47:21.918:INFO [compiler.karma-typescript]: Compiled 39 files in 1511 ms.
+
+05:47:21 (7448) DEBUG ChildProcessProxy Disposing of worker process 19104
+05:47:21 (7448) DEBUG ChildProcessProxy Disposing of worker process 20148
+05:47:21 (7448) DEBUG ChildProcessProxy Kill 19104
+05:47:21 (7448) DEBUG ChildProcessProxy Kill 20148
+05:47:22 (7448) DEBUG ChildProcessProxy Disposing of worker process 15868
+05:47:22 (7448) DEBUG ChildProcessProxy Kill 15868

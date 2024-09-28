@@ -14,6 +14,7 @@ import { anyNull, anyUndefined } from "./Shared.spec";
  */
 
 /* eslint-disable max-lines-per-function */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[RBLocale]", () => {
 
   describe("function 'getCurrentLanguage()'", () => {
@@ -21,6 +22,7 @@ describe("[RBLocale]", () => {
     it("Should return the current language, a string of length 5", () => {
       const expected = 5;
       const result: string = RBLocale.getCurrentLanguage();
+
       expect(result.length).toBe(expected);
     });
 
@@ -29,6 +31,7 @@ describe("[RBLocale]", () => {
       const testLanguage = "de-DE";
       RBLocale.setCurrentLanguage(testLanguage);
       const result: string = RBLocale.getCurrentLanguage();
+
       expect(result).toBe(testLanguage);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -38,6 +41,7 @@ describe("[RBLocale]", () => {
       const testLanguage = "ab-CD";
       RBLocale.setCurrentLanguage(testLanguage);
       const result: string = RBLocale.getCurrentLanguage();
+
       expect(result).toBe(saveLanguage);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -58,6 +62,7 @@ describe("[RBLocale]", () => {
       });
       // Call the function and check the result
       const result = RBLocale.getCurrentLanguage();
+
       expect(result).toBe(CURRENT_LANGUAGE);
       // Restore the original navigator object and language
       RBLocale.setCurrentLanguage(saveLanguage);
@@ -77,6 +82,7 @@ describe("[RBLocale]", () => {
       const expected = 2;
       const expectedCulture = RBLocale.getCurrentLanguage().substring(0, 2);
       const result: string = RBLocale.getCurrentCulture();
+
       expect(result.length).toBe(expected);
       expect(result).toBe(expectedCulture);
 
@@ -93,9 +99,11 @@ describe("[RBLocale]", () => {
       RBLocale.setCurrentLanguage("en-US");
       const expectedT = "True";
       const resultT: string = RBLocale.toTrueFalse(true);
+
       expect(resultT).toEqual(expectedT);
       const expectedF = "False";
       const resultF: string = RBLocale.toTrueFalse(false);
+
       expect(resultF).toEqual(expectedF);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -106,10 +114,12 @@ describe("[RBLocale]", () => {
       const resultT: string = RBLocale.toTrueFalse(true, lang);
       const expectedF: string = RBLocale.toTrueFalse(false, CURRENT_LANGUAGE);
       const resultF: string = RBLocale.toTrueFalse(false, lang);
+
       expect(resultT).toEqual(expectedT);
       expect(resultF).toEqual(expectedF);
       const resultET: string = RBLocale.toTrueFalse(true, EMPTY_STRING);
       const resultEF: string = RBLocale.toTrueFalse(false, EMPTY_STRING);
+
       expect(resultET).toEqual(expectedT);
       expect(resultEF).toEqual(expectedF);
     });
@@ -119,6 +129,7 @@ describe("[RBLocale]", () => {
       const expected = "Falsch";
       const resultN: string = RBLocale.toTrueFalse(anyNull, lang);
       const resultU: string = RBLocale.toTrueFalse(anyUndefined, lang);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -134,9 +145,11 @@ describe("[RBLocale]", () => {
       RBLocale.setCurrentLanguage("en-US");
       const expectedT = "Yes";
       const resultT: string = RBLocale.toYesNo(true);
+
       expect(resultT).toEqual(expectedT);
       const expectedF = "No";
       const resultF: string = RBLocale.toYesNo(false);
+
       expect(resultF).toEqual(expectedF);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -147,10 +160,12 @@ describe("[RBLocale]", () => {
       const resultT: string = RBLocale.toYesNo(true, lang);
       const expectedF: string = RBLocale.toYesNo(false, CURRENT_LANGUAGE);
       const resultF: string = RBLocale.toYesNo(false, lang);
+
       expect(resultT).toEqual(expectedT);
       expect(resultF).toEqual(expectedF);
       const resultET: string = RBLocale.toYesNo(true, EMPTY_STRING);
       const resultEF: string = RBLocale.toYesNo(false, EMPTY_STRING);
+
       expect(resultET).toEqual(expectedT);
       expect(resultEF).toEqual(expectedF);
 
@@ -161,6 +176,7 @@ describe("[RBLocale]", () => {
       const expected = "Nein";
       const resultN: string = RBLocale.toYesNo(anyNull, lang);
       const resultU: string = RBLocale.toYesNo(anyUndefined, lang);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -176,9 +192,11 @@ describe("[RBLocale]", () => {
       RBLocale.setCurrentLanguage("en-US");
       const expectedT = "Ok";
       const resultT: string = RBLocale.toOkCancel(true);
+
       expect(resultT).toEqual(expectedT);
       const expectedF = "Cancel";
       const resultF: string = RBLocale.toOkCancel(false);
+
       expect(resultF).toEqual(expectedF);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -189,10 +207,12 @@ describe("[RBLocale]", () => {
       const resultT: string = RBLocale.toOkCancel(true, lang);
       const expectedF: string = RBLocale.toOkCancel(false, CURRENT_LANGUAGE);
       const resultF: string = RBLocale.toOkCancel(false, lang);
+
       expect(resultT).toEqual(expectedT);
       expect(resultF).toEqual(expectedF);
       const resultET: string = RBLocale.toOkCancel(true, EMPTY_STRING);
       const resultEF: string = RBLocale.toOkCancel(false, EMPTY_STRING);
+
       expect(resultET).toEqual(expectedT);
       expect(resultEF).toEqual(expectedF);
 
@@ -203,6 +223,7 @@ describe("[RBLocale]", () => {
       const expected = "Abbrechen";
       const resultN: string = RBLocale.toOkCancel(anyNull, lang);
       const resultU: string = RBLocale.toOkCancel(anyUndefined, lang);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -219,14 +240,17 @@ describe("[RBLocale]", () => {
       RBLocale.setCurrentLanguage("fr-BE");
 
       let resultEnv: string = getCurrentEnvironmentLanguage();
+
       expect(resultEnv).toEqual(saveLanguageEnv);
 
       RBLocale.setCurrentLanguage("nl-BE");
       resultEnv = RBLocale.getCurrentLanguage();
+
       expect(resultEnv).toEqual(CURRENT_LANGUAGE);
       expect(resultEnv).toEqual("nl-BE");
 
       resultEnv = getCurrentEnvironmentLanguage();
+
       expect(resultEnv).toEqual(saveLanguageEnv);
 
       RBLocale.setCurrentLanguage(saveLanguage);
@@ -242,6 +266,7 @@ describe("[RBLocale]", () => {
         ["nl-NL", "nl-BE", "fr-BE", "fr-FR", "fr-LU", "de-DE"];
       const expected = true;
       const result: boolean = RBLocale.areLanguagesSupported(languages);
+
       expect(result).toEqual(expected);
     });
 
@@ -250,6 +275,7 @@ describe("[RBLocale]", () => {
         ["nl-NL", "nl-BE", "fr-BE", "fr-FR", "fr-LU", "de-DE", "ab-CD"];
       const expected = false;
       const result: boolean = RBLocale.areLanguagesSupported(languages);
+
       expect(result).toEqual(expected);
     });
 
@@ -259,6 +285,7 @@ describe("[RBLocale]", () => {
       const resultE: boolean = RBLocale.areLanguagesSupported([]);
       const resultN: boolean = RBLocale.areLanguagesSupported(anyNull);
       const resultU: boolean = RBLocale.areLanguagesSupported(anyUndefined);
+
       expect(result0).toBeFalsy();
       expect(result1).toBeTruthy();
       expect(resultE).toBeTruthy();
@@ -283,6 +310,7 @@ describe("[RBLocale]", () => {
       // Access the private method using reflection
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let result: string = (RBLocale as any).getValueForLanguageAndItem(item, language);
+
       expect(result).toBe(expected);
 
       item = "true";
@@ -291,6 +319,7 @@ describe("[RBLocale]", () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       result = (RBLocale as any).getValueForLanguageAndItem(item, language);
       expected = result;
+
       expect(result).toBe(expected);
 
       item = "true";
@@ -299,6 +328,7 @@ describe("[RBLocale]", () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       result = (RBLocale as any).getValueForLanguageAndItem(item, language);
       expected = result;
+
       expect(result).toBe(expected);
 
       item = "false";
@@ -307,6 +337,7 @@ describe("[RBLocale]", () => {
       // Access the private method using reflection
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       result = (RBLocale as any).getValueForLanguageAndItem(item, language);
+
       expect(result).toBe(expected);
     });
   });

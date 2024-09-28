@@ -216,6 +216,7 @@ export class RBFunc {
    * For numbers provide a comparison-function like in:
    *   ... sortUniqueArray(myNumArray, (a, b) => a - b);
    */
+  // eslint-disable-next-line no-unused-vars
   public static sortUniqueArray<T>(source: T[], compFn?: (a: T, b: T) => number): T[] {
     // Use a Set to remove duplicate values and convert back to an array
     // Sort the resulting array using the comparator if provided, otherwise use default sort

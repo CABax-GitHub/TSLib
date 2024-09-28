@@ -15,6 +15,7 @@ import { anyNull, anyUndefined } from "./Shared.spec";
  */
 
 /* eslint-disable max-lines-per-function */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[RBDate]", () => {
 
   describe("function 'toStringTime()'", () => {
@@ -25,6 +26,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31 14:12:13");
       const language: string = CURRENT_LANGUAGE;
       const expected: string = RBDate.toStringTime(value, language);
+
       expect(expected).toBe("14:12:13");
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -35,6 +37,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("invalid-date");
       const language: string = CURRENT_LANGUAGE;
       const expected: string = RBDate.toStringTime(value, language);
+
       expect(expected).toBe(EMPTY_STRING);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
@@ -46,12 +49,14 @@ describe("[RBDate]", () => {
       const language: string = CURRENT_LANGUAGE;
       const expected = "14:12:13"; // Adjust this based on your locale's time format
       const result: string = RBDate.toStringTime(value, language);
+
       expect(result).toBe(expected);
       RBLocale.setCurrentLanguage(saveLanguage);
     });
 
     it("Should return an empty string if date is null or undefined", () => {
       const language: string = CURRENT_LANGUAGE;
+
       expect(RBDate.toStringTime(anyNull, language)).toBe(EMPTY_STRING);
       expect(RBDate.toStringTime(anyUndefined, language)).toBe(EMPTY_STRING);
     });
@@ -66,6 +71,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31T11:12:13");
       const expected = RBDate.toStringDMYTime(value, language);
       const result: string = RBDate.toStringDMYTime(value, language);
+
       expect(result).toEqual(expected);
     });
 
@@ -77,6 +83,7 @@ describe("[RBDate]", () => {
 
     it("Should correctly handle invalid date strings", () => {
       const invalidDate = new Date("Invalid Date");
+
       expect(RBDate.toStringDMYTime(invalidDate, language)).toEqual(EMPTY_STRING);
     });
   });
@@ -90,6 +97,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31T11:12:13");
       const expected: string = RBDate.toStringDMY(value, language);
       const result: string = RBDate.toStringDMY(value, language);
+
       expect(result).toEqual(expected);
     });
 
@@ -101,6 +109,7 @@ describe("[RBDate]", () => {
 
     it("Should correctly handle invalid date strings", () => {
       const invalidDate = new Date("Invalid Date");
+
       expect(RBDate.toStringDMY(invalidDate, language)).toEqual(EMPTY_STRING);
     });
   });
@@ -112,6 +121,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31T11:12:13");
       const expected = "20240731111213";
       const result: string = RBDate.toStringYMDTime(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -123,6 +133,7 @@ describe("[RBDate]", () => {
 
     it("Should correctly handle invalid date strings", () => {
       const invalidDate = new Date("Invalid Date");
+
       expect(RBDate.toStringYMDTime(invalidDate)).toEqual(EMPTY_STRING);
     });
   });
@@ -134,6 +145,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31T11:12:13");
       const expected = "20240731";
       const result: string = RBDate.toStringYMD(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -145,6 +157,7 @@ describe("[RBDate]", () => {
 
     it("Should correctly handle invalid date strings", () => {
       const invalidDate = new Date("Invalid Date");
+
       expect(RBDate.toStringYMD(invalidDate)).toEqual(EMPTY_STRING);
     });
   });
@@ -183,8 +196,10 @@ describe("[RBDate]", () => {
     it("Should return the correct week-number for the test-cases", () => {
       testCases.forEach(({ date, expected }) => {
         const result = RBDate.toWeek(date);
+
         expect(result).toEqual(expected);
         const isInRange: boolean = result === null || RBFunc.isInRange(Math.abs(result), 1, 53);
+
         expect(isInRange).toBeTruthy();
       });
     });
@@ -221,6 +236,7 @@ describe("[RBDate]", () => {
     it("Should return the correct week-number for the test-cases", () => {
       testCases.forEach(({ date, expected }) => {
         const result = RBDate.toWeekString(date);
+
         expect(result).toEqual(expected);
       });
     });
@@ -229,6 +245,7 @@ describe("[RBDate]", () => {
       const expected: string = EMPTY_STRING;
       const resN: string = RBDate.toWeekString(anyNull);
       const resU: string = RBDate.toWeekString(anyUndefined);
+
       expect(resN).toEqual(expected);
       expect(resU).toEqual(expected);
     });
@@ -246,6 +263,7 @@ describe("[RBDate]", () => {
       const expected = "Woensdag";
       const result: string = RBDate.toDayName(value, language);
       const isUpFirst: boolean = result.length > 0 && result[0] === result[0].toUpperCase();
+
       expect(result).toEqual(expected);
       expect(isUpFirst).toBeTruthy();
       RBLocale.setCurrentLanguage(saveLanguage);
@@ -255,6 +273,7 @@ describe("[RBDate]", () => {
       const expected: string = EMPTY_STRING;
       const resN: string = RBDate.toDayName(anyNull);
       const resU: string = RBDate.toDayName(anyUndefined);
+
       expect(resN).toEqual(expected);
       expect(resU).toEqual(expected);
     });
@@ -273,6 +292,7 @@ describe("[RBDate]", () => {
       const expected = "Juli";
       const result: string = RBDate.toMonthName(value, language);
       const isUpFirst: boolean = result.length > 0 && result[0] === result[0].toUpperCase();
+
       expect(result).toEqual(expected);
       expect(isUpFirst).toBeTruthy();
       RBLocale.setCurrentLanguage(saveLanguage);
@@ -282,6 +302,7 @@ describe("[RBDate]", () => {
       const expected: string = EMPTY_STRING;
       const resN: string = RBDate.toMonthName(anyNull);
       const resU: string = RBDate.toMonthName(anyUndefined);
+
       expect(resN).toEqual(expected);
       expect(resU).toEqual(expected);
     });
@@ -296,6 +317,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31");
       const expected = 2024;
       const result: number | null = RBDate.toYear(value);
+
       expect(result).toEqual(expected);
     });
   });
@@ -308,6 +330,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31");
       const expected = 7;
       const result: number | null = RBDate.toMonth(value);
+
       expect(result).toEqual(expected);
     });
   });
@@ -320,6 +343,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31");
       const expected = 6;
       const result: number | null = RBDate.toMonthIndex(value);
+
       expect(result).toEqual(expected);
     });
   });
@@ -332,6 +356,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31");
       const expected = 31;
       const result: number | null = RBDate.toDay(value);
+
       expect(result).toEqual(expected);
     });
   });
@@ -343,6 +368,7 @@ describe("[RBDate]", () => {
     it("Should return the correct timestamp and date again", () => {
       const value: Date = new Date("2024-07-31 19:18:17");
       const timeStamp = RBDate.dateToTimeStamp(value);
+
       expect(RBDate.timeStampToDate(timeStamp)).toEqual(value);
     });
   });
@@ -467,6 +493,7 @@ describe("[RBDate]", () => {
     testCases.forEach(({ description, original, unit, value, expected }) => {
       it(description, () => {
         const result = RBDate.addToDate(original, unit, value);
+
         expect(result).toEqual(expected);
       });
     });
@@ -486,6 +513,7 @@ describe("[RBDate]", () => {
       const expected: Date = MIN_DATE;
       const resultN: Date = RBDate.addToDate(anyNull, "d", value);
       const resultU: Date = RBDate.addToDate(anyUndefined, "d", value);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -499,6 +527,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31 00:00:00");
       const date2: Date = new Date("2024-07-31 00:00:00");
       const result: boolean = RBDate.compareDates(value, date2);
+
       expect(result).toBeTruthy();
     });
 
@@ -506,6 +535,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31 00:00:00");
       const date2: Date = new Date("2024-07-31 00:00:01");
       const result: boolean = RBDate.compareDates(value, date2);
+
       expect(result).toBeFalsy();
     });
 
@@ -515,6 +545,7 @@ describe("[RBDate]", () => {
       const resultUndefDate: boolean = RBDate.compareDates(anyUndefined, aDate);
       const resultDateNull: boolean = RBDate.compareDates(aDate, anyNull);
       const resultDateUndef: boolean = RBDate.compareDates(aDate, anyUndefined);
+
       expect(resultNullDate).toBeFalsy();
       expect(resultUndefDate).toBeFalsy();
       expect(resultDateNull).toBeFalsy();
@@ -530,6 +561,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31 11:22:33");
       const expected: Date = new Date("2024-07-31 00:00:00");
       const result: Date = RBDate.zeroTime(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -539,6 +571,7 @@ describe("[RBDate]", () => {
         new Date(value.getFullYear(), value.getMonth(), value.getDate(), 0, 0, 0, 0);
       const resultN: Date = RBDate.zeroTime(anyNull);
       const resultU: Date = RBDate.zeroTime(anyUndefined);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -552,6 +585,7 @@ describe("[RBDate]", () => {
       const value: Date = new Date("2024-07-31 11:22:33");
       const expected: Date = new Date("1900-01-01 11:22:33");
       const result: Date = RBDate.zeroDate(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -561,6 +595,7 @@ describe("[RBDate]", () => {
         value.getHours(), value.getMinutes(), value.getSeconds(), value.getMilliseconds());
       const resultN: Date = RBDate.zeroDate(anyNull);
       const resultU: Date = RBDate.zeroDate(anyUndefined);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -574,6 +609,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2023, 1, 1); // February 1, 2023
       const date2 = new Date(2023, 1, 1); // February 1, 2023
       const expectedAge = 0;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -581,6 +617,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2000, 0, 1); // January 1, 2000
       const date2 = new Date(2023, 1, 1); // February 1, 2023
       const expectedAge = 23;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -588,6 +625,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2023, 1, 1); // February 1, 2023
       const date2 = new Date(2000, 0, 1); // January 1, 2000
       const expectedAge = 23;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -595,6 +633,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2023, 1, 1); // February 1, 2023
       const date2 = new Date(2023, 1, 2); // February 2, 2023
       const expectedAge = 0;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -602,6 +641,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2023, 1, 2); // February 2, 2023
       const date2 = new Date(2023, 1, 1); // February 1, 2023
       const expectedAge = 0;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -609,6 +649,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2022, 11, 31); // December 31, 2022
       const date2 = new Date(2023, 0, 1); // January 1, 2023
       const expectedAge = 0;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -616,13 +657,15 @@ describe("[RBDate]", () => {
       const date1 = new Date(2023, 0, 1); // January 1, 2023
       const date2 = new Date(2023, 11, 31); // December 31, 2023
       const expectedAge = 0;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
     it("should return the correct age considering months and days", () => {
       const date1 = new Date(2000, 5, 15); // June 15, 2000
       const date2 = new Date(2023, 5, 14); // June 14, 2023
-      const expectedAge = 22; // Not yet reached the birthday in 2023
+      const expectedAge = 22;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -630,6 +673,7 @@ describe("[RBDate]", () => {
       const date1 = new Date(2000, 1, 29); // February 29, 2000 (leap year)
       const date2 = new Date(2023, 1, 28); // February 28, 2023 (non-leap year)
       const expectedAge = 22;
+
       expect(RBDate.getAge(date1, date2)).toBe(expectedAge);
     });
 
@@ -637,6 +681,7 @@ describe("[RBDate]", () => {
       const firstDate = new Date(2000, 0, 1); // January 1, 2000
       const compareDate = new Date(2023, 1, 1); // February 1, 2023
       const expectedAge = 23;
+
       expect(RBDate.getAge(firstDate, compareDate)).toBe(expectedAge);
     });
 
@@ -644,6 +689,7 @@ describe("[RBDate]", () => {
       const firstDate = new Date(2000, 11, 31); // December 31, 2000
       const compareDate = new Date(2023, 1, 1); // February 1, 2023
       const expectedAge = 22;
+
       expect(RBDate.getAge(firstDate, compareDate)).toBe(expectedAge);
     });
 
@@ -656,36 +702,42 @@ describe("[RBDate]", () => {
     it("Should return true for a typical leap year (divisible by 4 but not by 100)", () => {
       const year = 2024;
       const result = RBDate.isLeapYear(year);
+
       expect(result).toBeTruthy();
     });
 
     it("Should return false for a typical non-leap year (not divisible by 4)", () => {
       const year = 2023;
       const result = RBDate.isLeapYear(year);
+
       expect(result).toBeFalsy();
     });
 
     it("Should return false for a year that is divisible by 100 but not by 400", () => {
       const year = 1900;
       const result = RBDate.isLeapYear(year);
+
       expect(result).toBeFalsy();
     });
 
     it("Should return true for a century year that is a leap year (divisible by 400)", () => {
       const year = 2000;
       const result = RBDate.isLeapYear(year);
+
       expect(result).toBeTruthy();
     });
 
     it("Should return false for a negative year that is not a leap year", () => {
       const year = -1;
       const result = RBDate.isLeapYear(year);
+
       expect(result).toBeFalsy();
     });
 
     it("Should return true for a negative year that is a leap year", () => {
       const year = -4;
       const result = RBDate.isLeapYear(year);
+
       expect(result).toBeTruthy();
     });
   });

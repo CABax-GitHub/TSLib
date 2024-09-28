@@ -1,4 +1,4 @@
-import { EMPTY_STRING, NEWLINE } from "../RBConstants";
+import { EMPTY_STRING, NEWLINE } from "./RBConstants";
 
 /**
  * Class NodeStorage to enhance localStorage (fallback if running outside browser)

@@ -1,4 +1,4 @@
-import { EMPTY_STRING } from "../RBConstants";
+import { EMPTY_STRING } from "./RBConstants";
 
 export class NodeBrowser {
 

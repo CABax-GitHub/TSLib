@@ -1,9 +1,7 @@
-import { RBBrowser as RBBrowser } from "./RBBrowser";
-
 /**
  * Global constants used in the library.
  *
- * 2024-09-18:
+ * 2024-09-28:
  *   - documented (JSDoc comment)
  *   - checked & formatted with eslint
  *   - complete test present for 'ng test'
@@ -12,24 +10,17 @@ import { RBBrowser as RBBrowser } from "./RBBrowser";
 
 /**
  * Global constants used in the library.
- * and usable in the application.
+ * and usable in applications.
  */
 export const IS_IN_BROWSER = typeof window !== "undefined";
 
-export const LIB_VERSION = "0.1.0";
+export const LIB_VERSION = "0.1.1";
 export const LIB_NAME = "RBCore" as const;
 
 export const TAB = "\t" as const;
 export const SPACE = " " as const;
 export const NEWLINE = "\r\n" as const;
 export const EMPTY_STRING = "" as const;
-
-export const DEVICE_TYPE: string = RBBrowser.getDeviceType();
-export const MAX_WIDTH_SCREEN: number = RBBrowser.getWindowsFormat().widthScreen;
-export const MAX_HEIGHT_SCREEN: number = RBBrowser.getWindowsFormat().heightScreen;
-export const IS_MOBILE: boolean = RBBrowser.isMobileDevice();
-export const BROWSER: string = RBBrowser.getBrowser();
-export const HAS_TOUCH_SCREEN: boolean = RBBrowser.hasTouchScreen();
 
 /**
  * This value represents the number of milliseconds in a day.

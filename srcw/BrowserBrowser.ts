@@ -1,5 +1,5 @@
-import { RBFunc } from "../RBFunc";
-import { IS_IN_BROWSER, EMPTY_STRING } from "../RBConstants";
+import { RBFunc } from "../src/RBFunc";
+import { IS_IN_BROWSER, EMPTY_STRING } from "../src/RBConstants";
 import { deviceTypes, DeviceTypeRange } from "./Shared";
 
 export class BrowserBrowser {

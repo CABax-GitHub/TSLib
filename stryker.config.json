@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "mutate": [
+    "src/**/*.ts",
+    "srcw/**/*.ts",
+    "!tests/**/*.spec.ts",
+    "!test/test.ts"
+  ],
+  "testRunner": "karma",
+  "karma": {
+    "configFile": "karma.conf.js",
+    "projectType": "custom",
+    "config": {
+      "browsers": [
+        "ChromeHeadless"
+      ]
+    }
+  },
+  "reporters": [
+    "progress",
+    "clear-text",
+    "html"
+  ],
+  "concurrency": 5,
+  "concurrency_comment": "Recommended to use about half of your available cores when running stryker with angular",
+  "coverageAnalysis": "perTest",
+  "ignoreStatic": true,
+  "warnings": { "preprocessorErrors": false },
+  "timeoutMS": 60000,
+  "timeoutFactor": 1.5  
+}

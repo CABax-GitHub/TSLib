@@ -13,17 +13,20 @@ import { anyNull, anyUndefined } from "./Shared.spec";
  */
 
 /* eslint-disable max-lines-per-function */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[RBLoginCriteria]", () => {
 
   describe("constructor 'RBLoginCriteria'", () => {
 
     it("Should create the class", () => {
       const loginCriteria = new RBLoginCriteria();
+
       expect(loginCriteria).toBeDefined();
     });
 
     it("Should have the correct properties", () => {
       const loginCriteria = new RBLoginCriteria();
+
       expect(loginCriteria.options).toEqual(StandardLoginOptions);
     });
 
@@ -47,12 +50,14 @@ describe("[RBLoginCriteria]", () => {
 
       const newLoginCriteria = loginCriteria;
       newLoginCriteria.options.allowedDomains = ["@someOrganisation.nl"];
+
       expect(newLoginCriteria).toEqual(loginCriteria);
       expect(newLoginCriteria.options.allowedDomains).toEqual(["@someOrganisation.nl"]);
 
       const newOptions = loginCriteria.options;
       newOptions.allowedDomains = ["@anotherOrganisation.nl"];
       newLoginCriteria.options = newOptions;
+
       expect(newLoginCriteria.options).toEqual(loginCriteria.options);
       expect(newLoginCriteria.options.allowedDomains).toEqual(["@anotherOrganisation.nl"]);
       expect(newOptions.allowedDomains).toEqual(["@anotherOrganisation.nl"]);
@@ -103,6 +108,7 @@ describe("[RBLoginValidator]", () => {
       testloginValidator.loginCriteria = newCriteria;
       testloginValidator.userName = "john.doe@dummy.com";
       testloginValidator.password = "SEcr34!23!";
+
       expect(testloginValidator.loginCriteria).toEqual(newCriteria);
       expect(testloginValidator.loginCriteria.options).toEqual(newOptions);
       expect(testloginValidator.userName).toBe("john.doe@dummy.com");
@@ -150,8 +156,10 @@ describe("[RBLoginValidator]", () => {
 
     it("Should have the correct properties", () => {
       testloginValidator.loginCriteria.options.allowedDomains = [];
+
       expect(testloginValidator.CheckLogin(
         "john@company.com", "12ABab!@abc", testloginValidator.loginCriteria.options)).toBeTruthy();
+
       expect(testloginValidator.userName).toBe("john@company.com");
       expect(testloginValidator.password).toBe("12ABab!@abc");
       expect(testloginValidator.loginCriteria.options.allowedDomains.length).toEqual(0);
@@ -163,8 +171,10 @@ describe("[RBLoginValidator]", () => {
       const myLoginCriteria = new RBLoginCriteria();
       myLoginCriteria.options.minimumLength = 11;
       myLoginCriteria.options.allowedDomains = ["@myOrganisation.nl"];
+
       expect(testloginValidator.CheckLogin(
         "abc@myorganisation.nl", "12ABab!@abc", myLoginCriteria.options)).toBeTruthy();
+
       expect(testloginValidator.userName).toBe("abc@myorganisation.nl");
       expect(testloginValidator.password).toBe("12ABab!@abc");
       expect(testloginValidator.loginCriteria.options.allowedDomains.length).toEqual(1);
@@ -190,6 +200,7 @@ describe("[RBLoginValidator]", () => {
       ];
       emptyEmails.forEach((email) => {
         const result: boolean = isValidEmail(email);
+
         expect(result).toBeFalsy();
       });
     });
@@ -198,6 +209,7 @@ describe("[RBLoginValidator]", () => {
       const email = "bax@myOrganisation.nl";
       const resultRB: boolean = isValidEmail(email, ["@myOrganisation.nl"]);
       const result: boolean = isValidEmail(email, []);
+
       expect(resultRB).toBeTruthy();
       expect(result).toBeTruthy();
     });
@@ -241,29 +253,35 @@ describe("[RBLoginValidator]", () => {
 
     it("should invalidate email addresses or its parts are too long", () => {
       const longLocalPart = "ab".repeat(32) + "@example.com";
+
       expect(isValidEmail(longLocalPart)).toBeTruthy();
       expect(isValidEmail("x" + longLocalPart)).toBeFalsy();
     });
+
     it("should invalidate email addresses or its parts are too long", () => {
       const longDomain = "abc@" + "ab".repeat(123) + ".com";
+
       expect(isValidEmail(longDomain)).toBeTruthy();
       expect(isValidEmail(longDomain + "x")).toBeFalsy();
     });
 
     it("should invalidate email addresses with consecutive dots", () => {
       const consecutiveDots = "user..name@example.com";
+
       expect(isValidEmail(consecutiveDots)).toBeFalsy();
     });
 
     it("should validate email addresses ending with a allowed domain", () => {
       const allowedDomains = ["@myOrganisation.nl", "@example.com"];
       const validEmail = "user@example.com";
+
       expect(isValidEmail(validEmail, allowedDomains)).toBeTruthy();
     });
 
     it("should invalidate email addresses not ending with allowed domains", () => {
       const allowedDomains = ["@myOrganisation.nl"];
       const invalidEmail = "user@notallowed.com";
+
       expect(isValidEmail(invalidEmail, allowedDomains)).toBeFalsy();
     });
 
@@ -281,6 +299,7 @@ describe("[RBLoginValidator]", () => {
       ];
       emptyPasswords.forEach((password) => {
         const result: boolean = RBLoginValidator.isStrongPassword(password);
+
         expect(result).toBeFalsy();
       });
     });
@@ -307,11 +326,13 @@ describe("[RBLoginValidator]", () => {
       validPasswords.forEach((password) => {
         const result: boolean =
           RBLoginValidator.isStrongPassword(password, StandardLoginOptions);
+
         expect(result).toBeTruthy();
       });
       invalidPasswords.forEach((password) => {
         const result: boolean =
           RBLoginValidator.isStrongPassword(password, StandardLoginOptions);
+
         expect(result).toBeFalsy();
       });
     });
@@ -332,6 +353,7 @@ describe("[RBLoginValidator]", () => {
         "1 special character, and less than 1 consecutive, identical character.";
       const result: boolean =
         myLoginValidator.CheckLogin("john@company.com", "secret", myLoginCriteria.options);
+
       expect(result).toBeFalsy();
       expect(myLoginValidator.errorMessages).toEqual([expected]);
     });
@@ -352,6 +374,7 @@ describe("[RBLoginValidator]", () => {
       "2 special characters, and less than 2 consecutive, identical characters.";
       const result: boolean =
         myLoginValidator.CheckLogin("john@company.com", "!!!!!!@@@@@@", myLoginCriteria.options);
+
       expect(result).toBeFalsy();
       expect(myLoginValidator.errorMessages).toEqual([expected]);
     });

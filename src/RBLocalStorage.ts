@@ -5,8 +5,8 @@
  * 2024-08-26:  eslint + ng test completed
  */
 
-import { BrowserStorage, BrowserTempStorage } from "./lib/BrowserStorage"; // Running inside browser
-import { NodeStorage, NodeTempStorage } from "./lib/NodeStorage"; // (fallback if outside browser)
+import { NodeStorage, NodeTempStorage } from "./NodeStorage"; // (fallback if outside browser)
+import { BrowserStorage, BrowserTempStorage } from "../srcw/BrowserStorage"; // Running inside browser
 
 export const RBLocalStorage =
   typeof window !== "undefined" ? BrowserStorage : NodeStorage;

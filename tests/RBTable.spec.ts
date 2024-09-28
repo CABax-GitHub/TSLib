@@ -21,16 +21,20 @@ describe("[RBTable]", () => {
     it("Should return false for empty table, otherwise true", () => {
       const dataTable: DataTable = [];
       let result = RBTable.hasData(dataTable);
+
       expect(result).toBeFalsy();
 
       dataTable.push({ data: ["Name", "Value", "Note"] });
       result = RBTable.hasData(dataTable);
+
       expect(result).toBeTruthy();
       dataTable.push({ data: ["ID", "21"] });
       result = RBTable.hasData(dataTable);
+
       expect(result).toBeTruthy();
       dataTable.push({ data: ["Filename", "test.txt", "fake"] });
       result = RBTable.hasData(dataTable);
+
       expect(result).toBeTruthy();
     });
 
@@ -41,6 +45,7 @@ describe("[RBTable]", () => {
         { data: [EMPTY_STRING, EMPTY_STRING, EMPTY_STRING] },
       ];
       const result = RBTable.hasData(dataTable);
+
       expect(result).toBeFalsy();
     });
 
@@ -51,6 +56,7 @@ describe("[RBTable]", () => {
         { data: [EMPTY_STRING, EMPTY_STRING, EMPTY_STRING] },
       ];
       const result = RBTable.hasData(dataTable);
+
       expect(result).toBeTruthy();
     });
 
@@ -61,6 +67,7 @@ describe("[RBTable]", () => {
         { data: [EMPTY_STRING, EMPTY_STRING, EMPTY_STRING] },
       ];
       const result = RBTable.hasData(dataTable);
+
       expect(result).toBeTruthy();
     });
 
@@ -71,6 +78,7 @@ describe("[RBTable]", () => {
         { data: [EMPTY_STRING, EMPTY_STRING, EMPTY_STRING] },
       ];
       const result = RBTable.hasData(dataTable);
+
       expect(result).toBeFalsy();
     });
 
@@ -81,6 +89,7 @@ describe("[RBTable]", () => {
         { data: [anyNull, anyUndefined, anyNull] },
       ];
       const result = RBTable.hasData(dataTable);
+
       expect(result).toBeFalsy();
     });
 
@@ -95,6 +104,7 @@ describe("[RBTable]", () => {
       // Access the private method using reflection
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const hasData = (RBTable as any).rowHasData;
+
       expect(hasData(123)).toBe(true);
       expect(hasData("123")).toBe(true);
       expect(hasData(0)).toBe(true);
@@ -114,6 +124,7 @@ describe("[RBTable]", () => {
       // Access the private method using reflection
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const isNumberMethod = (RBTable as any).isNumber;
+
       expect(isNumberMethod(123)).toBe(true);
       expect(isNumberMethod("123")).toBe(false);
       expect(isNumberMethod(0)).toBe(true);
@@ -151,6 +162,7 @@ describe("[RBTable]", () => {
       dataTable = [];
       const expected: string = EMPTY_STRING;
       const result: string = RBTable.dataTableToString(dataTable);
+
       expect(result).toBe(expected);
       dataTable = saveDataTable;
     });
@@ -159,6 +171,7 @@ describe("[RBTable]", () => {
       const expected: string = EMPTY_STRING;
       const resultN: string = RBTable.dataTableToString(anyNull);
       const resultU: string = RBTable.dataTableToString(anyUndefined);
+
       expect(resultN).toBe(expected);
       expect(resultU).toBe(expected);
     });
@@ -179,6 +192,7 @@ describe("[RBTable]", () => {
       expect(result).toContain("│     2 │ Filename │ test.txt │ fake  │");
       // Check that the result contains exactly 3 empty rows
       const emptyRow = "│       │          │          │       │";
+
       expect(result.split(emptyRow).length - 1).toBe(3); // Ensure there are
     });
   });

@@ -15,7 +15,8 @@ import { anyNull, anyUndefined } from "./Shared.spec";
  */
 
 /* eslint-disable max-lines-per-function */
-
+/* eslint-disable jasmine/no-suite-dupes */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[RBFunc - Functions]", () => {
 
   describe("function 'stringUpFirst()'", () => {
@@ -24,10 +25,12 @@ describe("[RBFunc - Functions]", () => {
       const value = "abcdéfgh";
       const expected = "Abcdéfgh";
       const result: string = RBFunc.stringUpFirst(value);
+
       expect(result).toEqual(expected);
       const valueToTrim = "  abcdéfgh  ";
       const expectedToTrim = "Abcdéfgh  ";
       const resultToTrim: string = RBFunc.stringUpFirst(valueToTrim);
+
       expect(resultToTrim).toEqual(expectedToTrim);
     });
 
@@ -35,6 +38,7 @@ describe("[RBFunc - Functions]", () => {
       const value = "Abcdéfgh";
       const expected = "Abcdéfgh";
       const result: string = RBFunc.stringUpFirst(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -42,6 +46,7 @@ describe("[RBFunc - Functions]", () => {
       const org: string = EMPTY_STRING;
       const expected: string = EMPTY_STRING;
       const result: string = RBFunc.stringUpFirst(org);
+
       expect(result).toEqual(expected);
     });
 
@@ -49,6 +54,7 @@ describe("[RBFunc - Functions]", () => {
       const valueWhitespace = RBFunc.spaces(5);
       const expectedWhitespace = EMPTY_STRING;
       const resultWhitespace: string = RBFunc.stringUpFirst(valueWhitespace);
+
       expect(resultWhitespace).toEqual(expectedWhitespace);
     });
 
@@ -56,6 +62,7 @@ describe("[RBFunc - Functions]", () => {
       const expected: string = EMPTY_STRING;
       const resultN: string = RBFunc.stringUpFirst(anyNull);
       const resultU: string = RBFunc.stringUpFirst(anyUndefined);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -70,6 +77,7 @@ describe("[RBFunc - Functions]", () => {
       const search = "f";
       const expected = "Abcdé";
       const result: string = RBFunc.stringBefore(value, search);
+
       expect(result).toEqual(expected);
     });
 
@@ -78,6 +86,7 @@ describe("[RBFunc - Functions]", () => {
       const search = "fg";
       const expected = "Abcdé";
       const result: string = RBFunc.stringBefore(value, search);
+
       expect(result).toEqual(expected);
     });
 
@@ -86,6 +95,7 @@ describe("[RBFunc - Functions]", () => {
       const search = "xyz";
       const expected = "Abcdéfgh";
       const result: string = RBFunc.stringBefore(value, search);
+
       expect(result).toEqual(expected);
     });
 
@@ -95,6 +105,7 @@ describe("[RBFunc - Functions]", () => {
       const resultE: string = RBFunc.stringBefore(EMPTY_STRING, search);
       const resultN: string = RBFunc.stringBefore(anyNull, search);
       const resultU: string = RBFunc.stringBefore(anyUndefined, search);
+
       expect(resultE).toEqual(expected);
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
@@ -110,6 +121,7 @@ describe("[RBFunc - Functions]", () => {
       const search = "c";
       const expected = "défgh";
       const result: string = RBFunc.stringAfter(value, search);
+
       expect(result).toEqual(expected);
     });
 
@@ -118,6 +130,7 @@ describe("[RBFunc - Functions]", () => {
       const search = "bc";
       const expected = "défgh";
       const result: string = RBFunc.stringAfter(value, search);
+
       expect(result).toEqual(expected);
     });
 
@@ -126,6 +139,7 @@ describe("[RBFunc - Functions]", () => {
       const search = "xyz";
       const expected = "Abcdéfgh";
       const result: string = RBFunc.stringAfter(value, search);
+
       expect(result).toEqual(expected);
     });
 
@@ -135,6 +149,7 @@ describe("[RBFunc - Functions]", () => {
       const resultE: string = RBFunc.stringAfter(EMPTY_STRING, search);
       const resultN: string = RBFunc.stringAfter(anyNull, search);
       const resultU: string = RBFunc.stringAfter(anyUndefined, search);
+
       expect(resultE).toEqual(expected);
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
@@ -151,6 +166,7 @@ describe("[RBFunc - Functions]", () => {
       const before = "g";
       const expected = "déf";
       const result: string = RBFunc.stringBetween(value, after, before);
+
       expect(result).toEqual(expected);
     });
 
@@ -160,6 +176,7 @@ describe("[RBFunc - Functions]", () => {
       const before = "g";
       const expected = "cdéfg";
       const result: string = RBFunc.stringBetween(value, after, before, true);
+
       expect(result).toEqual(expected);
     });
 
@@ -169,6 +186,7 @@ describe("[RBFunc - Functions]", () => {
       const before = "g";
       const expected = "Abcdéfgh";
       const result: string = RBFunc.stringBetween(value, after, before);
+
       expect(result).toEqual(expected);
     });
 
@@ -178,6 +196,7 @@ describe("[RBFunc - Functions]", () => {
       const before = "Q";
       const expected: string = value;
       const result: string = RBFunc.stringBetween(value, after, before);
+
       expect(result).toEqual(expected);
     });
 
@@ -188,6 +207,7 @@ describe("[RBFunc - Functions]", () => {
       const resultE: string = RBFunc.stringBetween(EMPTY_STRING, after, before);
       const resultN: string = RBFunc.stringBetween(anyNull, after, before);
       const resultU: string = RBFunc.stringBetween(anyUndefined, after, before);
+
       expect(resultE).toEqual(expected);
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
@@ -202,6 +222,7 @@ describe("[RBFunc - Functions]", () => {
       const resultUA: string = RBFunc.stringBetween(value, after, anyUndefined);
       const resultNB: string = RBFunc.stringBetween(value, anyNull, before);
       const resultUB: string = RBFunc.stringBetween(value, anyUndefined, before);
+
       expect(resultNA).toEqual(expected);
       expect(resultUA).toEqual(expected);
       expect(resultNB).toEqual(expected);
@@ -217,6 +238,7 @@ describe("[RBFunc - Functions]", () => {
       const value = "  Ab\tcdéf  gh  ";
       const expected = "Ab cdéf gh";
       const result: string = RBFunc.trimAll(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -224,6 +246,7 @@ describe("[RBFunc - Functions]", () => {
       const org: string = EMPTY_STRING;
       const expected: string = EMPTY_STRING;
       const result: string = RBFunc.trimAll(org);
+
       expect(result).toEqual(expected);
     });
 
@@ -231,6 +254,7 @@ describe("[RBFunc - Functions]", () => {
       const expected: string = EMPTY_STRING;
       const resultN: string = RBFunc.trimAll(anyNull);
       const resultU: string = RBFunc.trimAll(anyUndefined);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -244,6 +268,7 @@ describe("[RBFunc - Functions]", () => {
       const value = "  Ab\tcdéf  gh  ";
       const expected = "  hg  fédc\tbA  ";
       const result: string = RBFunc.stringReverse(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -252,6 +277,7 @@ describe("[RBFunc - Functions]", () => {
       const valueU = anyUndefined;
       const resultN: string = RBFunc.stringReverse(valueN);
       const resultU: string = RBFunc.stringReverse(valueU);
+
       expect(resultN).toEqual(EMPTY_STRING);
       expect(resultU).toEqual(EMPTY_STRING);
     });
@@ -266,6 +292,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 2;
       const expected: string = SPACE + SPACE;
       const result: string = RBFunc.spaces(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -273,6 +300,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 0;
       const expected: string = SPACE;
       const result: string = RBFunc.spaces(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -280,6 +308,7 @@ describe("[RBFunc - Functions]", () => {
       const count = -2;
       const expected: string = SPACE;
       const result: string = RBFunc.spaces(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -287,6 +316,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 2.1;
       const expected: string = SPACE + SPACE;
       const result: string = RBFunc.spaces(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -294,6 +324,7 @@ describe("[RBFunc - Functions]", () => {
       const expected: string = SPACE;
       const resultN: string = RBFunc.spaces(anyNull);
       const resultU: string = RBFunc.spaces(anyUndefined);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -307,6 +338,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 2;
       const expected: string = NEWLINE + NEWLINE;
       const result: string = RBFunc.newlines(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -314,6 +346,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 0;
       const expected: string = NEWLINE;
       const result: string = RBFunc.newlines(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -321,6 +354,7 @@ describe("[RBFunc - Functions]", () => {
       const count = -2;
       const expected: string = NEWLINE;
       const result: string = RBFunc.newlines(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -328,6 +362,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 2.1;
       const expected: string = NEWLINE + NEWLINE;
       const result: string = RBFunc.newlines(count);
+
       expect(result).toEqual(expected);
     });
 
@@ -335,6 +370,7 @@ describe("[RBFunc - Functions]", () => {
       const expected: string = NEWLINE;
       const resultN: string = RBFunc.newlines(anyNull);
       const resultU: string = RBFunc.newlines(anyUndefined);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
     });
@@ -348,6 +384,7 @@ describe("[RBFunc - Functions]", () => {
       const fileContents: string[] = ["Assen"];
       const expected: string[] = ["Assen"];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -369,6 +406,7 @@ describe("[RBFunc - Functions]", () => {
       ];
       const expected: string[] = ["Assen"];
       const result: string[] = RBFunc.removeKnownImports(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -412,6 +450,7 @@ describe("[RBFunc - Functions]", () => {
     RBLocale.setCurrentLanguage("en-US");
     it("should return 0 if value is 0", () => {
       const expected00_00 = CURRENT_LANGUAGE === "en-US" ? "  0.00" : "  0,00";
+
       expect(RBFunc.percentString(0, 100)).toBe(expected00_00);
     });
 
@@ -431,13 +470,16 @@ describe("[RBFunc - Functions]", () => {
 
     it("should return the correct percentage", () => {
       const expected25_00 = CURRENT_LANGUAGE === "en-US" ? " 25.00" : " 25,00";
+
       expect(RBFunc.percentString(50, 200)).toBe(expected25_00);
       const expected33_33 = CURRENT_LANGUAGE === "en-US" ? " 33.33" : " 33,33";
+
       expect(RBFunc.percentString(1, 3, 2)).toBe(expected33_33);
     });
 
     it("should handle decimal places correctly", () => {
       const expected33_333 = CURRENT_LANGUAGE === "en-US" ? " 33.333" : " 33,333";
+
       expect(RBFunc.percentString(1, 3, 3)).toBe(expected33_333);
     });
     RBLocale.setCurrentLanguage(saveLanguage);
@@ -449,30 +491,38 @@ describe("[RBFunc - Functions]", () => {
     it("Should return the value if it is in range, else the valueIfNot", () => {
       let expected = 5;
       let result: number = RBFunc.ifInRangeElse(5, 1, 10, 50, false);
+
       expect(result).toEqual(expected);
       expected = 5;
       result = RBFunc.ifInRangeElse(5, 1, 10, 50, true);
+
       expect(result).toEqual(expected);
       expected = 5;
       result = RBFunc.ifInRangeElse(5, 1, 10, 50);
+
       expect(result).toEqual(expected);
 
       expected = 1;
       result = RBFunc.ifInRangeElse(1, 1, 10, 50, false);
+
       expect(result).toEqual(expected);
       expected = 10;
       result = RBFunc.ifInRangeElse(10, 1, 10, 50, false);
+
       expect(result).toEqual(expected);
 
       expected = 50;
       result = RBFunc.ifInRangeElse(1, 1, 10, 50, true);
+
       expect(result).toEqual(expected);
       result = RBFunc.ifInRangeElse(10, 1, 10, 50, true);
+
       expect(result).toEqual(expected);
     });
 
     it("should throw an error when min > max", () => {
       const errorMessage = "The parameter 'min' can't be greater than 'max'.";
+
       expect(() => {
         RBFunc.ifInRangeElse(5, 10, 1, 50);
       }).toThrowError(errorMessage);
@@ -480,27 +530,35 @@ describe("[RBFunc - Functions]", () => {
 
     it("should throw an error when a parameter is null or undefined", () => {
       const errorMessage = "The parameters can't be 'null' or 'undefined'.";
+
       expect(() => {
         RBFunc.ifInRangeElse(anyNull, 1, 10, 50);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(10, anyNull, 10, 50);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(10, 1, anyNull, 50);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(10, 1, 10, anyNull);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(anyUndefined, 1, 10, 50);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(10, anyUndefined, 10, 50);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(10, 1, anyUndefined, 50);
       }).toThrowError(errorMessage);
+
       expect(() => {
         RBFunc.ifInRangeElse(10, 1, 10, anyUndefined);
       }).toThrowError(errorMessage);
@@ -515,6 +573,7 @@ describe("[RBFunc - Functions]", () => {
       const org: string[] = ["Jan", "Piet", "koos", "Jan", "Klaas"];
       const expected: string[] = ["Jan", "Klaas", "Piet", "koos"];
       const result: string[] = RBFunc.sortUniqueArray(org);
+
       expect(result).toEqual(expected);
     });
   });
@@ -526,6 +585,7 @@ describe("[RBFunc - Functions]", () => {
       const org: string[] = ["Jan", "Piet", "koos", "Jan", "Klaas"];
       const expected: string[] = ["Jan", "Klaas", "Piet", "koos"];
       const result: string[] = RBFunc.sortUniqueArray(org);
+
       expect(result).toEqual(expected);
     });
 
@@ -535,6 +595,7 @@ describe("[RBFunc - Functions]", () => {
       const resultE: string[] = RBFunc.sortUniqueArray(orgE);
       const resultN: string[] = RBFunc.sortUniqueArray(anyNull);
       const resultU: string[] = RBFunc.sortUniqueArray(anyUndefined);
+
       expect(resultE).toEqual(expected);
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
@@ -544,6 +605,7 @@ describe("[RBFunc - Functions]", () => {
       const org: number[] = [3, 1, 2, 6, 2, 0];
       const expected: number[] = [0, 1, 2, 3, 6];
       const result: number[] = RBFunc.sortUniqueArray(org, (a, b) => a - b);
+
       expect(result).toEqual(expected);
     });
 
@@ -551,6 +613,7 @@ describe("[RBFunc - Functions]", () => {
       const org: number[] = [3, 1, 2.5, 6, 2.1, 0];
       const expected: number[] = [0, 1, 2.1, 2.5, 3, 6];
       const result: number[] = RBFunc.sortUniqueArray(org);
+
       expect(result.length).toEqual(expected.length);
     });
 
@@ -558,6 +621,7 @@ describe("[RBFunc - Functions]", () => {
       const org: number[] = [];
       const expected: number[] = [];
       const result: number[] = RBFunc.sortUniqueArray(org, (a, b) => a - b);
+
       expect(result).toEqual(expected);
     });
 
@@ -585,6 +649,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 7;
       const expected = "Jan    ";
       const result: string = RBFunc.pad(value, count);
+
       expect(result).toBe(expected);
     });
 
@@ -593,6 +658,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 7;
       const expected = value.toLocaleString().padEnd(count);
       const result: string = RBFunc.pad(value, count);
+
       expect(result).toBe(expected);
     });
 
@@ -601,6 +667,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 7;
       const expected = RBFunc.pad(value, count);
       const result: string = RBFunc.pad(value, count);
+
       expect(result).toBe(expected);
     });
 
@@ -609,6 +676,7 @@ describe("[RBFunc - Functions]", () => {
       const count = 7;
       const expected = RBFunc.pad(value, count);
       const result: string = RBFunc.pad(value, count);
+
       expect(result).toBe(expected);
     });
 
@@ -620,6 +688,7 @@ describe("[RBFunc - Functions]", () => {
       const expectedTime = RBFunc.pad(valueTime, count);
       const result: string = RBFunc.pad(value, count);
       const resultTime: string = RBFunc.pad(valueTime, count);
+
       expect(result).toBe(expected);
       expect(resultTime).toBe(expectedTime);
     });
@@ -634,6 +703,7 @@ describe("[RBFunc - Functions]", () => {
       const value: Date = new Date(2024, 7, 31, 2, 4, 6);
       const expected = "31-08-2024 02:04:06   ";
       const result: string = RBFunc.pad(value, count);
+
       expect(resultJustString).toBe(expectedJustString);
       expect(result).toBe(expected);
       RBLocale.setCurrentLanguage(saveLanguage);
@@ -648,6 +718,7 @@ describe("[RBFunc - Functions]", () => {
       const value = "Jan";
       const expected = "Jan";
       const result: string = RBFunc.colorizeFilePaths(value);
+
       expect(result).toBe(expected);
     });
 
@@ -658,6 +729,7 @@ describe("[RBFunc - Functions]", () => {
       const value = `Jan ${aPath} en meer`;
       const expected = `Jan ${colorStart}${aPath}${colorEnd} en meer`;
       const result: string = RBFunc.colorizeFilePaths(value);
+
       expect(result).toBe(expected);
     });
 
@@ -665,6 +737,7 @@ describe("[RBFunc - Functions]", () => {
       const text = "Here is a file path: /home/user/file.txt";
       const expected = "Here is a file path: \x1b[36m/home/user/file.txt\x1b[0m";
       const result = RBFunc.colorizeFilePaths(text);
+
       expect(result).toEqual(expected);
     });
 
@@ -672,6 +745,7 @@ describe("[RBFunc - Functions]", () => {
       const text = "Here is a file path: C:\\Users\\user\\file.txt";
       const expected = "Here is a file path: \x1b[36mC:\\Users\\user\\file.txt\x1b[0m";
       const result = RBFunc.colorizeFilePaths(text);
+
       expect(result).toEqual(expected);
     });
 
@@ -680,6 +754,7 @@ describe("[RBFunc - Functions]", () => {
       const expected = "Here are file paths: \x1b[36m/home/user/file.txt\x1b[0m " +
         "and \x1b[36mC:\\Users\\user\\file.txt\x1b[0m";
       const result = RBFunc.colorizeFilePaths(text);
+
       expect(result).toEqual(expected);
     });
 
@@ -687,6 +762,7 @@ describe("[RBFunc - Functions]", () => {
       const text = "Here is a file path: /home/user/my-file.name.txt";
       const expected = "Here is a file path: \x1b[36m/home/user/my-file.name.txt\x1b[0m";
       const result = RBFunc.colorizeFilePaths(text);
+
       expect(result).toEqual(expected);
     });
 
@@ -694,6 +770,7 @@ describe("[RBFunc - Functions]", () => {
       const text = "Here is a file path: /home/user/file.tar.gz";
       const expected = "Here is a file path: \x1b[36m/home/user/file.tar.gz\x1b[0m";
       const result = RBFunc.colorizeFilePaths(text);
+
       expect(result).toEqual(expected);
     });
 
@@ -701,6 +778,7 @@ describe("[RBFunc - Functions]", () => {
       const text = "This is not a file path: just some text";
       const expected = "This is not a file path: just some text";
       const result = RBFunc.colorizeFilePaths(text);
+
       expect(result).toEqual(expected);
     });
   });
@@ -728,6 +806,7 @@ describe("[RBFunc - Functions]", () => {
         "const e = 5; // Inline comment",
       ];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -739,6 +818,7 @@ describe("[RBFunc - Functions]", () => {
       ];
       const expected: string[] = [];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -754,6 +834,7 @@ describe("[RBFunc - Functions]", () => {
         "const c = 3;",
       ];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -761,6 +842,7 @@ describe("[RBFunc - Functions]", () => {
       const fileContents: string[] = [];
       const expected: string[] = [];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -777,6 +859,7 @@ describe("[RBFunc - Functions]", () => {
         "const b = 2;",
       ];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
 
@@ -794,6 +877,7 @@ describe("[RBFunc - Functions]", () => {
         "const c = 3;",
       ];
       const result: string[] = RBFunc.removeCommentLines(fileContents);
+
       expect(result).toEqual(expected);
     });
   });

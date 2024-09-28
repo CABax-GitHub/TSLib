@@ -1,7 +1,7 @@
 import { RBEnum } from "./RBEnum";
 import { RBLocalStorage } from "./RBLocalStorage";
-import { getCurrentNodeLanguage } from "./lib/NodeLanguage"; // (fallback if outside browser)
-import { getCurrentBrowserLanguage } from "./lib/BrowserLanguage"; // Running inside browser
+import { getCurrentNodeLanguage } from "./NodeLanguage"; // (fallback if outside browser)
+import { getCurrentBrowserLanguage } from "../srcw/BrowserLanguage"; // Running inside browser
 import { IS_IN_BROWSER } from "./RBConstants";
 
 // To prevent circular reference from/to Constants.ts

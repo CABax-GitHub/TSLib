@@ -15,6 +15,8 @@ import { anyNull, anyUndefined } from "./Shared.spec";
  */
 
 /* eslint-disable max-lines-per-function */
+/* eslint-disable jasmine/no-suite-dupes */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[Holidays]", () => {
   let holidays = new RBHoliday;
   const todaysYear = new Date().getFullYear();
@@ -42,6 +44,7 @@ describe("[Holidays]", () => {
       spyOn(RBLocale, "areLanguagesSupported").and.returnValue(false);
       // Example known languages
       spyOn(RBLocale, "knownLanguages").and.returnValue(["en", "fr", "de"]);
+
       expect(() => new RBHoliday()).toThrowError(
         "Check if all languages in RBHolidays.ts are also defined in RBLocale.ts " +
           "(SupportedLanguages).",
@@ -51,6 +54,7 @@ describe("[Holidays]", () => {
     it("should initialize all holidays", () => {
       expect(holidays.allHolidays[0].languageName).toBe("en-US");
       const allHolidayCount = holidays.totalHolidayRecords;
+
       expect(holidays.allHolidays.length).toBe(allHolidayCount);
     });
 
@@ -62,12 +66,16 @@ describe("[Holidays]", () => {
 
     it("should get/set the default language", () => {
       holidays.language = "nl-NL";
+
       expect(holidays.language).toEqual("nl-NL");
       holidays.language = EMPTY_STRING;
+
       expect(holidays.language).toEqual(CURRENT_LANGUAGE);
       holidays.language = "en-US";
+
       expect(holidays.language).toEqual("en-US");
       holidays.language = CURRENT_LANGUAGE;
+
       expect(holidays.language).toEqual(CURRENT_LANGUAGE);
     });
 
@@ -91,6 +99,7 @@ describe("[Holidays]", () => {
       const knownLanguagesCount = RBLocale.knownLanguages().length;
       const allHolidayCount = holidays.totalHolidayRecords;
       const averageHolidayCount = allHolidayCount / knownLanguagesCount;
+
       expect(averageHolidayCount).toBeGreaterThan(10);
       expect(averageHolidayCount).toBeLessThan(20);
     });
@@ -114,6 +123,7 @@ describe("[Holidays]", () => {
         "2024 nl-NL 2e Kerstdag Donderdag 26-12-2024" + NEWLINE;
       const resultUS: string = holidays.getHolidaysForYearAsString(todaysYear, "en-US");
       const resultNL: string = holidays.getHolidaysForYearAsString(todaysYear, "nl-NL");
+
       expect(resultUS.length).toBeGreaterThan(minimumLength);
       expect(resultNL.length).toBeGreaterThan(minimumLength);
       expect(resultNL).toBe(expected);
@@ -123,6 +133,7 @@ describe("[Holidays]", () => {
       const language: string = CURRENT_LANGUAGE;
       const resultN = holidays.getHolidaysForYearAsString(anyNull, language);
       const resultU = holidays.getHolidaysForYearAsString(anyUndefined, language);
+
       expect(resultN).toBe(EMPTY_STRING);
       expect(resultU).toBe(EMPTY_STRING);
     });
@@ -131,6 +142,7 @@ describe("[Holidays]", () => {
       const expected = holidays.getHolidaysForYearAsString(todaysYear, CURRENT_LANGUAGE);
       const resultN = holidays.getHolidaysForYearAsString(yearTooSmall, CURRENT_LANGUAGE);
       const resultU = holidays.getHolidaysForYearAsString(yearTooBig, CURRENT_LANGUAGE);
+
       expect(resultN).toEqual(expected);
       expect(resultU).toEqual(expected);
       expect(resultN.length).toEqual(expected.length);
@@ -145,19 +157,23 @@ describe("[Holidays]", () => {
         holidays.getHolidaysForYearAsString(todaysYear, CURRENT_LANGUAGE);
       const result =
         holidays.getHolidaysForYearAsString(todaysYear, language);
+
       expect(result).toEqual(expected);
     });
 
     it("should return exactly the right list and number of holidays", () => {
       const language = "nl-NL";
       const holidaysCountTotal = holidays.holidayCount(language, false);
+
       expect(holidaysCountTotal).toBe(nlHolidays);
       const holidaysCount = holidays.holidayCount(language);
+
       expect(holidaysCount).toBe(nlActiveHolidays);
       const expected: string =
         holidays.getHolidaysForYearAsString(todaysYear, "nl-NL");
       const result =
         holidays.getHolidaysForYearAsString(todaysYear, "nl-NL");
+
       expect(result).toEqual(expected);
       expect(result.split(NEWLINE).length).toEqual(holidaysCount);
     });
@@ -171,6 +187,7 @@ describe("[Holidays]", () => {
       const value: Date = christmas2024;
       const language = "nl-NL";
       const result: boolean = holidays.isHoliday(value, language);
+
       expect(result).toBeTruthy();
     });
 
@@ -178,9 +195,11 @@ describe("[Holidays]", () => {
       const language = "nl-NL";
       const valueTrue: Date = new Date("2020-05-05");
       const result: boolean = holidays.isHoliday(valueTrue, language);
+
       expect(result).toBeTruthy();
       const valueFalse: Date = new Date("2021-05-05");
       const resultFalse: boolean = holidays.isHoliday(valueFalse, language);
+
       expect(resultFalse).toBeFalsy();
     });
 
@@ -188,6 +207,7 @@ describe("[Holidays]", () => {
       const value: Date = dayAfterChristmas2024;
       const language = "nl-NL";
       const result: boolean = holidays.isHoliday(value, language);
+
       expect(result).toBeFalsy();
     });
 
@@ -195,6 +215,7 @@ describe("[Holidays]", () => {
       const language: string = CURRENT_LANGUAGE;
       const resultNull: boolean = holidays.isHoliday(anyNull, language);
       const resultUndefined: boolean = holidays.isHoliday(anyUndefined, language);
+
       expect(resultNull).toBeFalsy();
       expect(resultUndefined).toBeFalsy();
     });
@@ -209,6 +230,7 @@ describe("[Holidays]", () => {
       const language = "nl-NL";
       const expected: string = christmas2024Name;
       const result: string = holidays.holidayName(value, language);
+
       expect(result).toEqual(expected);
     });
 
@@ -217,6 +239,7 @@ describe("[Holidays]", () => {
       const language = "nl-NL";
       const expected: string = EMPTY_STRING;
       const result: string = holidays.holidayName(value, language);
+
       expect(result).toEqual(expected);
     });
 
@@ -225,6 +248,7 @@ describe("[Holidays]", () => {
       const expected: string = EMPTY_STRING;
       const resultNull: string = holidays.holidayName(anyNull, language);
       const resultUndefined: string = holidays.holidayName(anyUndefined, language);
+
       expect(resultNull).toEqual(expected);
       expect(resultUndefined).toEqual(expected);
     });
@@ -236,14 +260,17 @@ describe("[Holidays]", () => {
 
     it("should return '31-03-2024' for 2024", () => {
       let result: Date = holidays.easterSunday(year2024);
+
       expect(result).toEqual(easter2024);
       // And use cashed value now
       result = holidays.easterSunday(year2024);
+
       expect(result).toEqual(easter2024);
     });
 
     it("should handle invalid or negative year input gracefully", () => {
       const result: Date = holidays.easterSunday(yearTooSmall);
+
       expect(result).toBeInstanceOf(Date); // Ensure a Date is returned for invalid input
     });
 
@@ -251,6 +278,7 @@ describe("[Holidays]", () => {
       const expected: Date = easter2024;
       const resultNull: Date = holidays.easterSunday(anyNull);
       const resultUndefined: Date = holidays.easterSunday(anyUndefined);
+
       expect(resultNull).toEqual(expected);
       expect(resultUndefined).toEqual(expected);
     });
@@ -260,6 +288,7 @@ describe("[Holidays]", () => {
       const resultZeroYear: Date = holidays.easterSunday(0);
       const resultLargeYear: Date = holidays.easterSunday(10_000);
       const resultLeapYear: Date = holidays.easterSunday(2000);
+
       expect(RBDate.compareDates(resultZeroYear, expected)).toBeTruthy();
       expect(RBDate.compareDates(resultLargeYear, expected)).toBeTruthy();
       expect(resultLeapYear).toBeInstanceOf(Date);
@@ -268,6 +297,7 @@ describe("[Holidays]", () => {
     it("should return '31-03-2024' for 2024", () => {
       const expected: Date = easter2024;
       const result: Date = holidays.easterSunday(year2024);
+
       expect(result).toEqual(expected);
     });
 
@@ -275,6 +305,7 @@ describe("[Holidays]", () => {
       const value: number = easter2025.getFullYear();
       const expected: Date = easter2025;
       const result: Date = holidays.easterSunday(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -282,6 +313,7 @@ describe("[Holidays]", () => {
       const value: number = yearTooSmall;
       const expected: Date = easterThisYear;
       const result: Date = holidays.easterSunday(value);
+
       expect(result).toEqual(expected);
     });
 
@@ -289,6 +321,7 @@ describe("[Holidays]", () => {
       const expected: Date = new Date("2024-03-31 00:00:00");
       const resultNull: Date = holidays.easterSunday(anyNull);
       const resultUndefined: Date = holidays.easterSunday(anyUndefined);
+
       expect(resultNull).toEqual(expected);
       expect(resultUndefined).toEqual(expected);
     });
@@ -305,6 +338,7 @@ describe("[HolidayData]", () => {
 
     it("should create a HolidayData", () => {
       const holiday = new HolidayData();
+
       expect(holiday).toBeDefined();
     });
 
@@ -312,6 +346,7 @@ describe("[HolidayData]", () => {
       const holiday = new HolidayData();
       holiday.absoluteDay = 17;
       holiday.absoluteMonth = 9;
+
       expect(holiday.languageName).toBe(CURRENT_LANGUAGE);
       expect(holiday.active).toBeFalsy();
       expect(holiday.holidayName).toBe(EMPTY_STRING);
@@ -333,6 +368,7 @@ describe("[HolidayData]", () => {
       spyOn(RBLocale, "areLanguagesSupported").and.returnValue(false);
       // Example known languages
       spyOn(RBLocale, "knownLanguages").and.returnValue(["en", "fr", "de"]);
+
       expect(() => new RBHoliday()).toThrowError(
         "Check if all languages in RBHolidays.ts are also defined in RBLocale.ts " +
           "(SupportedLanguages).",

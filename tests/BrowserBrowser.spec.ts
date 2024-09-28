@@ -1,7 +1,7 @@
 import { EMPTY_STRING } from "../src/RBConstants";
-import { RBBrowser } from "../src/RBBrowser";
-import { BrowserBrowser } from "../src/lib/BrowserBrowser";
-import { deviceTypes, DeviceTypeRange, validDeviceTypes } from "../src/lib/Shared";
+import { RBBrowser } from "../srcw/RBBrowser";
+import { BrowserBrowser } from "../srcw/BrowserBrowser";
+import { deviceTypes, DeviceTypeRange, validDeviceTypes } from "../srcw/Shared";
 
 /**
  * Tests for Class BrowserBrowser and its functions:
@@ -52,6 +52,7 @@ describe("[BrowserBrowser]", () => {
 
     it("should return a valid device type", () => {
       const result = BrowserBrowser.getDeviceType();
+
       expect(validDeviceTypes).toContain(result);
     });
 
@@ -67,12 +68,14 @@ describe("[BrowserBrowser]", () => {
         const testWidth = Math.floor((minWidthScreen + maxWidthScreen) / 2);
         Object.defineProperty(
           window.screen, "availWidth", { value: testWidth, configurable: true });
+
         expect(BrowserBrowser.getDeviceType()).toBe(type);
       });
 
       it(`should return "${type}" for minimum width ${minWidthScreen}`, () => {
         Object.defineProperty(
           window.screen, "availWidth", { value: minWidthScreen, configurable: true });
+
         expect(BrowserBrowser.getDeviceType()).toBe(type);
       });
 
@@ -80,6 +83,7 @@ describe("[BrowserBrowser]", () => {
         it(`should return "${type}" for maximum width ${maxWidthScreen}`, () => {
           Object.defineProperty(
             window.screen, "availWidth", { value: maxWidthScreen, configurable: true });
+
           expect(BrowserBrowser.getDeviceType()).toBe(type);
         });
       }
@@ -88,6 +92,7 @@ describe("[BrowserBrowser]", () => {
     it("should return an empty string when screen is undefined", () => {
       // eslint-disable-next-line no-undefined
       Object.defineProperty(window, "screen", { value: undefined, configurable: true });
+
       expect(BrowserBrowser.getDeviceType()).toBe(EMPTY_STRING);
       Object.defineProperty(window, "screen", { value: originalScreen, configurable: true });
     });
@@ -109,6 +114,7 @@ describe("[BrowserBrowser]", () => {
 
     it("Should return width and height of the current window", () => {
       const result = BrowserBrowser.getWindowsFormat();
+
       expect(result.widthScreen).toBe(originalScreen.availWidth);
       expect(result.heightScreen).toBe(originalScreen.availHeight);
     });
@@ -122,6 +128,7 @@ describe("[BrowserBrowser]", () => {
         configurable: true,
       });
       const result = BrowserBrowser.getWindowsFormat();
+
       expect(result).toEqual({ widthScreen: 0, heightScreen: 0 });
     });
 
@@ -133,6 +140,7 @@ describe("[BrowserBrowser]", () => {
         configurable: true,
       });
       const result = BrowserBrowser.getWindowsFormat();
+
       expect(result).toEqual({ widthScreen: 0, heightScreen: 0 });
     });
 
@@ -143,6 +151,7 @@ describe("[BrowserBrowser]", () => {
         configurable: true,
       });
       const result = BrowserBrowser.getWindowsFormat();
+
       expect(result).toEqual({ widthScreen: 0, heightScreen: 0 });
     });
 
@@ -178,6 +187,7 @@ describe("[BrowserBrowser]", () => {
           "(KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
         configurable: true,
       });
+
       expect(BrowserBrowser.isMobileDevice()).toBeFalsy();
     });
 
@@ -187,6 +197,7 @@ describe("[BrowserBrowser]", () => {
           "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1",
         configurable: true,
       });
+
       expect(BrowserBrowser.isMobileDevice()).toBeTruthy();
     });
 
@@ -196,6 +207,7 @@ describe("[BrowserBrowser]", () => {
           "(KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
         configurable: true,
       });
+
       expect(BrowserBrowser.isMobileDevice()).toBeTruthy();
     });
 
@@ -207,6 +219,7 @@ describe("[BrowserBrowser]", () => {
         value: undefined,
         configurable: true,
       });
+
       expect(BrowserBrowser.isMobileDevice()).toBeFalsy();
     });
 
@@ -230,6 +243,7 @@ describe("[BrowserBrowser]", () => {
           "(KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
         configurable: true,
       });
+
       expect(BrowserBrowser.getBrowser()).toContain("Chrome 91");
     });
 
@@ -239,6 +253,7 @@ describe("[BrowserBrowser]", () => {
           "(KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59",
         configurable: true,
       });
+
       expect(BrowserBrowser.getBrowser()).toContain("MS-Edge 91");
     });
 
@@ -248,6 +263,7 @@ describe("[BrowserBrowser]", () => {
           "(KHTML, like Gecko) Version/14.1.1 Safari/605.1.15",
         configurable: true,
       });
+
       expect(BrowserBrowser.getBrowser()).toContain("Safari 605");
     });
 
@@ -256,6 +272,7 @@ describe("[BrowserBrowser]", () => {
         value: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0",
         configurable: true,
       });
+
       expect(BrowserBrowser.getBrowser()).toContain("Firefox 89");
     });
 
@@ -264,6 +281,7 @@ describe("[BrowserBrowser]", () => {
         value: "Unknown Browser",
         configurable: true,
       });
+
       expect(BrowserBrowser.getBrowser()).toBe(EMPTY_STRING);
     });
 
@@ -277,6 +295,7 @@ describe("[BrowserBrowser]", () => {
         configurable: true,
       });
       const result = BrowserBrowser.getBrowser();
+
       expect(result).toBe(EMPTY_STRING);
       // Restore the original navigator
       Object.defineProperty(window, "navigator", {

@@ -1,4 +1,4 @@
-import { NodeStorage, NodeTempStorage } from "../src/lib/NodeStorage";
+import { NodeStorage, NodeTempStorage } from "../src/NodeStorage";
 import { RBLocalStorage, RBLocalTempStorage } from "../src/RBLocalStorage";
 
 /**
@@ -12,13 +12,10 @@ const testKey = "unitTestKey";
 const testValue = "test-value";
 const languageKey = "Language";
 const languageValue = "nl-NL";
-beforeEach(() => {
-  NodeStorage.clear();
-  NodeTempStorage.clear();
-});
 
 /* eslint-disable max-lines-per-function */
-
+/* eslint-disable jasmine/no-suite-dupes */
+/* eslint-disable jasmine/no-spec-dupes */
 describe("[NodeStorage]", () => {
 
   describe("RBLocalStorage present", () => {
@@ -41,12 +38,19 @@ describe("[NodeStorage]", () => {
 
   describe("function 'getAllKeysAndValuesAsString()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return everything stored in localStorage", () => {
       NodeStorage.clear();
       let bool = NodeStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       expect(NodeStorage.getValue(testKey)).toEqual(testValue);
       bool = NodeStorage.setValue("Lang", "nl-NL");
+
       expect(bool).toBeTruthy();
       expect(NodeStorage.getValue("Lang")).toEqual("nl-NL");
       expect(NodeStorage.getValue("Lang")).not.toEqual(testKey);
@@ -55,6 +59,7 @@ describe("[NodeStorage]", () => {
         testKey.length + testValue.length + languageKey.length + languageValue.length;
       const resultLength: number = NodeStorage.length();
       const result: string = NodeStorage.getAllKeysAndValuesAsString();
+
       expect(resultLength).toEqual(expected);
       expect(result.length).toEqual(expectedLength);
     });
@@ -62,9 +67,15 @@ describe("[NodeStorage]", () => {
 
   describe("function 'existsKey()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return true for an existing key", () => {
       NodeStorage.clear();
       const bool = NodeStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       expect(NodeStorage.existsKey(testKey)).toBe(true);
     });
@@ -76,9 +87,15 @@ describe("[NodeStorage]", () => {
 
   describe("function 'getValue()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return the stored value", () => {
       NodeStorage.clear();
       const bool = NodeStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       expect(NodeStorage.getValue(testKey)).toEqual(testValue);
     });
@@ -88,6 +105,7 @@ describe("[NodeStorage]", () => {
       const notPresentValue = "not_present_value";
       const notPresentKey = "not_present_key";
       const bool = NodeStorage.setValue(notPresentKey, notPresentValue);
+
       expect(bool).toBeTruthy();
       expect(NodeStorage.getValue(notPresentKey)).toEqual(notPresentValue);
     });
@@ -95,9 +113,15 @@ describe("[NodeStorage]", () => {
 
   describe("function 'setValue()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should store a value", () => {
       NodeStorage.clear();
       const result = NodeStorage.setValue(testKey, testValue);
+
       expect(NodeStorage.getValue(testKey)).toEqual(testValue);
       expect(result).toBeTruthy();
     });
@@ -105,11 +129,18 @@ describe("[NodeStorage]", () => {
 
   describe("function 'deleteKey()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return true if key is deleted", () => {
       NodeStorage.clear();
       const bool = NodeStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       const result: boolean = NodeStorage.deleteKey(testKey);
+
       expect(result).toBeTruthy();
     });
   });
@@ -119,8 +150,10 @@ describe("[NodeStorage]", () => {
     it("should return true if cleared", () => {
       NodeStorage.clear();
       const bool = NodeStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       NodeStorage.clear();
+
       expect(NodeStorage.length()).toBe(0);
     });
   });
@@ -130,8 +163,10 @@ describe("[NodeStorage]", () => {
     it("should return 1 if 1 value present", () => {
       NodeStorage.clear();
       const bool = NodeStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       const result: number = NodeStorage.length();
+
       expect(result).toEqual(1);
     });
 
@@ -142,17 +177,25 @@ describe("[NodeTempStorage]", () => {
 
   describe("function 'getAllKeysAndValuesAsString()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return everything stored in sessionStorage", () => {
       NodeTempStorage.clear();
       let bool = NodeTempStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       bool = NodeTempStorage.setValue("Lang", "nl-NL");
+
       expect(bool).toBeTruthy();
       const expected = 2; // Two values to test
       const expectedLength: number =
         testKey.length + testValue.length + languageKey.length + languageValue.length;
       const resultLength: number = NodeTempStorage.length();
       const result: string = NodeTempStorage.getAllKeysAndValuesAsString();
+
       expect(resultLength).toEqual(expected);
       expect(result.length).toEqual(expectedLength);
     });
@@ -160,9 +203,15 @@ describe("[NodeTempStorage]", () => {
 
   describe("function 'existsKey()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return true for an existing key", () => {
       NodeTempStorage.clear();
       const bool = NodeTempStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       expect(NodeTempStorage.existsKey(testKey)).toBe(true);
     });
@@ -173,10 +222,15 @@ describe("[NodeTempStorage]", () => {
   });
 
   describe("function 'getValue()'", () => {
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
 
     it("should return the stored value", () => {
       NodeTempStorage.clear();
       const bool = NodeTempStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       expect(NodeTempStorage.getValue(testKey)).toEqual(testValue);
     });
@@ -186,16 +240,22 @@ describe("[NodeTempStorage]", () => {
       const notPresentValue = "not_present_value";
       const notPresentKey = "not_present_key";
       const bool = NodeTempStorage.setValue(notPresentKey, notPresentValue);
+
       expect(bool).toBeTruthy();
       expect(NodeTempStorage.getValue(notPresentKey)).toEqual(notPresentValue);
     });
   });
 
   describe("function 'setValue()'", () => {
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
 
     it("should store a value", () => {
       NodeTempStorage.clear();
       const result = NodeTempStorage.setValue(testKey, testValue);
+
       expect(result).toBeTruthy();
       expect(NodeTempStorage.getValue(testKey)).toEqual(testValue);
     });
@@ -203,22 +263,36 @@ describe("[NodeTempStorage]", () => {
 
   describe("function 'deleteKey()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return true if key is deleted", () => {
       NodeTempStorage.clear();
       const bool = NodeTempStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       const result: boolean = NodeTempStorage.deleteKey(testKey);
+
       expect(result).toBeTruthy();
     });
   });
 
   describe("function 'clear()'", () => {
 
+    beforeEach(() => {
+      NodeStorage.clear();
+      NodeTempStorage.clear();
+    });
+
     it("should return true if cleared", () => {
       NodeTempStorage.clear();
       const bool = NodeTempStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       NodeTempStorage.clear();
+
       expect(NodeTempStorage.length()).toBe(0);
     });
   });
@@ -228,8 +302,10 @@ describe("[NodeTempStorage]", () => {
     it("should return 1 if 1 value present", () => {
       NodeTempStorage.clear();
       const bool = NodeTempStorage.setValue(testKey, testValue);
+
       expect(bool).toBeTruthy();
       const result: number = NodeTempStorage.length();
+
       expect(result).toEqual(1);
     });
 

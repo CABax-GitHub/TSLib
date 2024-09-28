@@ -1,4 +1,4 @@
-import { EMPTY_STRING, NEWLINE } from "../RBConstants";
+import { EMPTY_STRING, NEWLINE } from "../src/RBConstants";
 
 /**
  * Class BrowserStorage to enhance localStorage
