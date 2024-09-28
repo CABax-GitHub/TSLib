@@ -1,6 +1,10 @@
-..stryker-tmp/**/*
+.stryker-tmp
+.stryker-tmp/**/*
+.vscode
 .vscode/**/*
+coverage
 coverage/**/*
-coverage/Chrome Headless 129.0.0.0 (Windows 10)/**/*
+node_modules
 node_modules/**/*
+dist
 dist/**/*
