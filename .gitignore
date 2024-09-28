@@ -8,3 +8,10 @@ node_modules
 node_modules/**/*
 dist
 dist/**/*
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/index.html
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/src/index.html
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/src/NodeLanguage.ts.html
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/src/RBConstants.ts.html
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/srcw/BrowserLanguage.ts.html
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/srcw/index.html
+coverage/Chrome Headless 129.0.0.0 (Windows 10)/html/srcw/Shared.ts.html
